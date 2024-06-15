@@ -1,6 +1,4 @@
 # wanted-pre-onboarding-challenge-data
-wanted-challenge
-
 ### Numpy
 ### Pandas
 ### Discussion

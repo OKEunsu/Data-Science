@@ -19,5 +19,6 @@ pandas 스크립트를 그대로 사용할 수 있으며, 행동과 결과는 �
 import modin.pandas as pd
 ```
 
-Modin 작동 방식
+Modin 작동 방식  
+
 ![image](https://github.com/user-attachments/assets/2b368790-306b-4100-81be-4d8a9d3c22ea)

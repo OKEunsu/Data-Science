@@ -20,3 +20,4 @@ import modin.pandas as pd
 ```
 
 Modin 작동 방식
+![image](https://github.com/user-attachments/assets/2b368790-306b-4100-81be-4d8a9d3c22ea)

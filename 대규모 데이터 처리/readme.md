@@ -20,5 +20,3 @@ import modin.pandas as pd
 ```
 
 Modin 작동 방식
-![이미지 설명]([https://example.com/path/to/image.png](https://raw.githubusercontent.com/modin-project/modin/b236b76ece7bc917485bfc35aa2c89006213f1f1/examples/tutorial/jupyter/img/modin_multicore.png))
-

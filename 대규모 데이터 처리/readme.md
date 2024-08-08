@@ -18,3 +18,6 @@ pandas 스크립트를 그대로 사용할 수 있으며, 행동과 결과는 �
 ```
 import modin.pandas as pd
 ```
+
+Modin 작동 방식
+https://raw.githubusercontent.com/modin-project/modin/b236b76ece7bc917485bfc35aa2c89006213f1f1/examples/tutorial/jupyter/img/modin_multicore.png

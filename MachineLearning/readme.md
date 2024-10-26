@@ -1,6 +1,7 @@
 # RandomForest
 
-![3.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8b626005-249a-4949-b7a4-d9bede57b12a/3.png)
+![image](https://github.com/user-attachments/assets/c3e3c852-5dbe-4618-8efe-326e80f041ca)
+
 
 ## 앙상블의 정의
 
@@ -20,7 +21,8 @@
 - Train Data에서 여러 번 복원 추출하는 Random Sampling 기법
 - 추출된 샘플들을 부트스트랩 샘플이라고 부른다
 
-![캡처.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5555ffd0-cd88-4d50-81d9-7ad6d51b2a99/%EC%BA%A1%EC%B2%98.png)
+![image](https://github.com/user-attachments/assets/59745b5f-c2c3-415f-8eef-40efec1ee95d)
+
 
 ### OOB(Out-Of-Bag) 평가
 
@@ -30,7 +32,8 @@
 
 추출된 부트스트랩 샘플마다 약분류기를 학습시킨다
 
-![캡처.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7f856196-6367-4d98-942d-132250924401/%EC%BA%A1%EC%B2%98.png)
+![image](https://github.com/user-attachments/assets/e7202f1a-d812-425e-9362-17dddecdecf1)
+
 
 ### Aggregation
 
@@ -40,13 +43,15 @@
 
 예측한 결과값 중 다수의 분류기가 결정한 값을 최종 예측값으로 결정
 
-![캡처.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/540ea138-26a7-4e15-bf73-3a285198ebf3/%EC%BA%A1%EC%B2%98.png)
+![image](https://github.com/user-attachments/assets/cf7e4d39-9c82-4da2-aacc-fb5a428bf250)
+
 
 1. Soft Voting
 
 분류기가 예측한 확률 값의 평균으로 결정
 
-![캡처.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1f9248b2-60b3-4f29-9852-736a418ec40e/%EC%BA%A1%EC%B2%98.png)
+![image](https://github.com/user-attachments/assets/35a291aa-3886-408e-9d64-59fc7b3c4786)
+
 
 ## Bagging의 장점
 

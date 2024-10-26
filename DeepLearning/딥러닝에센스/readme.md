@@ -146,4 +146,25 @@ Epoch : 모든 데이터를 한 번 학습하는 단위
 - 하나의 feature에 의존하지 않게 하기 위함
 
 ## Batch Normalization
+한 Batch 단위로 정규화 하는 기법
+- Batch 단위로 한 레이어에 입력으로 들어오는 값들을 이용해서 평균과 분산을 구함
+- 구한 평균과 분산을 이용하여 Normalization을 함
 
+### Internal Covariant Shift
+- 레이어를 통과할 때 마다 각 레이어나 활성화 함수의 입력값의 분산(분포)이 달라지는 현상
+- 학습시 hidden layer에서 입력 분포가 학습 할 때마다 변화하며 weight가 최적이 아닌 방향으로 학습될 수 있음
+- 학습을 불안정하게 하는 요소 - 신경망이 깊어질 수록 학습이 불안정해 짐
+- Batch Normalization의 경우 위와 같은 문제를 해결 가능
+- 학습 시 평균과 분산을 조정 단순히 평균, 분산을 구하고 각각 0, 1로 만들려는 것이 아니라 Scaling과 shifting을 통해 적절한 분포를 유지하면서 학습할 수 있도록 도와줌
+
+### Gradient Vanishing
+- 뉴럴 네트워크 학습을 위한 역전파 과정에서 낮은 레이어로 갈 수록 기울기가 작아지는 현상
+- 해결을 위해 Sigmoid 대신 ReLU 사용, 매 layer의 입력을 normalizaton해주어 작아지지 않도록 하는 방법이 있음
+- 반대로 Gradient가 너무 커지는 현상을 Gradient Exploding이라 하며 Batch Normalization은 Gradient Exploding도 예방하는데 도움이 됨
+- Weight의 scale을 정규화 하기 때문에 Gradient Exploding도 방지 기능
+
+### 그 외 장점들
+- Learning rate를 크게 설정해도 학습을 안정적으로 하여 학습 속도가 개선
+- 과적합의 위험을 줄일 수 있음
+- Weight 초깃값 설정의 의존성이 줄어듦
+- Local minima에 빠질 가능성을 낮춰 줌

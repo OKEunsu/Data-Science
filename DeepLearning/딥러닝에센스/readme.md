@@ -63,7 +63,7 @@
 - 예측값은 0과 1 사이의 확률 값
 - 레이블 y는 원-핫 인코딩 형태
 
-## 최적화
+## 최적화 1
 최적화 : 손실 함수를 최소화 하는 Weight(W)를 찾는 과정
 
 - 현재 위치에서 손실 함수의 출력값이 감소하는 방향으로 조금씩 Weights(W)를 움직여 나가는 것
@@ -88,7 +88,7 @@ Input에 대한 Output을 가장 잘 예측하는 Weights를 찾기 위해 W를 
 - sigmoid는 0과 1 사이의 값을 가지며, 반복되서 곱해지면 거의 0에 가까운 값이 됨
 - 이러한 현상을 Gradient Vanishing이라 함 이를 피하기 위해 ReLU, Normalization등 방법이 존재
 
-## 최적화
+## 최적화 2
 
 Gradient Descent 문제점
 - 모든 파라미터에 대해 동일한 learning rate를 적용함

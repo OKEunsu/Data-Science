@@ -96,11 +96,28 @@ Gradient Descent 문제점
 - 무조건 기울어진 방향으로 이동하므로 탐색 경로가 비효율적
 
 ![image](https://github.com/user-attachments/assets/137236c9-fa3c-4c7f-9d4b-ba6f1d2aec28)
-  
+![image](https://github.com/user-attachments/assets/0e26e452-073c-4a73-9545-691317a2ecb7)
 
+- Gradient Descent를 통해 이동하는 과정에 관성을 더함
+- 파라미터를 업데이트 할 때 현재 뿐만 아니라 이전 gradient도 계산에 포함하여 업데이트
+- 과거에 이동했던 방식을 기억하면서 그 방향으로 일정 정도를 추가적으로 이동
+- Gradient들의 지수평균을 업데이트 하는 데 이용
 
+#### Adagrad(Adaptive Gradient)
+- 각 변수마다 step size를 다르게 설정해서 이동하는 방식
+- Gradient가 커서 많이 변화했던 변수들은 step size를 작게
+- 많이 변화한 변수들은 그만큼 학습이 더 많이 되었을 것으로 가정
+- 단점 : 학습을 계속 진행하면 step size가 너무 줄어듦 - 학습을 오래 할 경우 거의 움직이지 않게 됨
 
+#### RMSProp
+- AdaGrad의 학습이 오래 진행할 경우 step size가 너무 줄어들어 학습이 더 이상 되지 않는 문제를 해결하기 위함
+- Gradient의 제곱값을 더해가며 구한 g 부분을 합이 아닌 지수 평균으로 대체
+- 변수간 상대적 크기 차이 유지 가능
 
-
+#### Adam(Adaptive Moment Estimation)
+- RMSProp + Momentum
+- 가장 많이 사용되는 최적화 방법
+- 지금까지 계산해 온 gradient의 지수평균 저장
+- Gradient의 제곱갑스이 지수평균을 저장
 
 

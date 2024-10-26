@@ -34,7 +34,7 @@ print(b)
 
 ### Search method
 
-- 첫번째로 패턴을 찾으면 match 개겣를 반환
+- 첫번째로 패턴을 찾으면 match 개체를 반환
 - 패턴을 찾지 못하면 None 반환
 
 ```python

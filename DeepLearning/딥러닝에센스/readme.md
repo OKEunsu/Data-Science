@@ -120,4 +120,30 @@ Gradient Descent 문제점
 - 지금까지 계산해 온 gradient의 지수평균 저장
 - Gradient의 제곱갑스이 지수평균을 저장
 
+## Overfitting
+Regularzation이 필요한 이유 : 과적합 문제를 해결하기 위함
+
+### 과적합
+- 학습 데이터에는 성능이 높지만 검증/테스트 데이터에는 성능이 잘 나오지 않는 경우
+- 모델이 복잡하고 데이터가 적을수록 과적합이 일어나기 쉬움
+- 학습 데이터가 검증/테스트 데이터를 충분히 대표하지 못할 경우 많이 일어남
+- Training loss는 감소하지만 Validation loss는 증가하는 구간
+- 모델을 데이터에 과하게 맞추려 하는 경우 - 학습 보다 암기에 가까움
+
+Mini-batch : 전체 데이터를 동일한 크기를 가진 그룹으로 나눈 것
+Iteration : 한 배치 단위의 데이터를 학습하는 단위
+Epoch : 모든 데이터를 한 번 학습하는 단위
+
+## Regularization 기법
+### Early Stopping
+- 이전 epoch과 비교하여 validation loss가 감소하지 않으면 학습을 중단
+- 바로 전 epoch의 validation loss 뿐 아니라 일정한 epoch 수를 거듭하며 validation loss가 감소하지 않으면 학습 중단
+  
+### Dropout
+- 모델이 복잡할 수록, 뉴럴 네트워크가 커질수록 overfitting에 빠질 가능성이 높음
+- 네트워크에 있는 모든 weight에 대해 학습을 하는 것이 아니라 layer에 포함된 weight중 일부만 학습
+- 학습시 뉴런을 임의의 비율만큼 삭제하며 삭제된 뉴런의 값은 순전파, 역전파를 하지 않음
+- 하나의 feature에 의존하지 않게 하기 위함
+
+## Batch Normalization
 

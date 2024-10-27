@@ -1,7 +1,8 @@
 ## 파이썬 GSheet
 ## API 사용등록
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/8dde073d-88e5-43a1-9985-f9c52be2a183/c67c95f6-03e6-45e6-9a77-3442428e0c1c/Untitled.png)
+![image](https://github.com/user-attachments/assets/e961b26d-c58e-4d8a-9b6d-1a5b950e542e)
+
 
 ### 사용자 인증 정보 만들기
 

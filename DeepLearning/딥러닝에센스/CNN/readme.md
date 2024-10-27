@@ -26,7 +26,7 @@
 - Data Augmentation도 데이터 수를 늘림으로써 Overfitting을 막기 위한 방법 중 하나
 
 ## 기법
-![image](https://github.com/user-attachments/assets/06589cb6-35ff-4c1d-91d9-d8d74afd771a)
+![image](https://github.com/user-attachments/assets/06589cb6-35ff-4c1d-91d9-d8d74afd771a)  
 너무 과한 Data Augmentation 기법을 적용할 경우 오히려 학습에 혼동을 줄 수 있음
 
 # CNN 기본 개념

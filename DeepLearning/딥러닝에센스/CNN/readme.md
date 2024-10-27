@@ -56,3 +56,33 @@
 - 7x7 input feature map에 3x3 filter를 적용
 - stride = 2 일 경우
   - 파란색 filter가 3x3 output feature map을 만듦
+
+#### Output feature size
+- Stride = 1 : (7-3)/1 + 1 = 5
+- Strdie = 2 : (7-3)/2 + 1 = 3
+- Strdie = 3 : (7-3)/3 + 1 = 2.33(X)
+
+## Padding
+- Convolution layer를 쌓을수록 input feature의 크기가 작아지는데, 이를 유지하기 위함
+- Input feature의 중앙 부분은 filter가 많이 보지만 side부분은 덜 보게 되는데, side 부분의 정보도 더 잘 이용하기 위함
+
+## Pooling Layer
+- Max Pooling
+- Average Pooling
+
+- Convolution Layer는 각 filter당 하나의 feature map이 형성되며 이 featue map들을 쌓아 output feature map이 구성됨
+- Filter가 많을 경우 많은 weight(parameter)를 필요로 하게 되며 이 경우 over-fitting을 초래할 수 있음
+- 따라서 feature map의 크기를 감소시키는 방법으로 over-fitting을 방지하려 함
+  - Pooling laye를 도입
+- Convolution layer에서 이미지에서 어떤 특징이 얼마나 있는지를 구한 후 Pooling layer에서 이미지의 뒤틀림이나 크기 변화에 따른 왜곡의 영향을 축소
+![image](https://github.com/user-attachments/assets/069090e5-7d2e-4b38-a387-26619af5e7f2)
+마지막 Output feature map을 FC Layer에 넣어 class의 수 만큼의 차원으로 바꿈
+- Softmax를 사용하여 최종 classification score를 뽑아냄
+
+## Parameter(weight) Sharing
+1. 두 귀를 하나의 특징으로 취급하여 위치에 상관없이 귀 2개 추출
+2. 위치를 고려하여 서로 다른 2개의 귀로 인식하는 것
+   - 2의 경우 동일한 특징이라도 위치가 다르면 다른 특징으로 인식해야하기 떄문에 모두 다른 filter를 사용 -> 비효율
+   - 1을 위해 parameter(weight) sharing 방법을 사용
+     - MLP보다 더 적은 파라미터를 사용하여 메모리를 아끼고 연산량도 더 효율적이게 됨
+

@@ -86,3 +86,15 @@
    - 1을 위해 parameter(weight) sharing 방법을 사용
      - MLP보다 더 적은 파라미터를 사용하여 메모리를 아끼고 연산량도 더 효율적이게 됨
 
+## Translation Equivariance / Invariance
+Translation Equirvariance : 입력의 위치가 변하면 출력도 동일하게 위치가 변한 상태로 나옴
+- Equivariance : 함수의 입력이 바뀌면 출력도 바뀜
+- COnv Layer의 특징
+- 앞서 다뤘던 Spatial 정보를 고려하는 것과 특징이 유사
+
+Translation Invariance : 입력의 취기 변해도 출력은 위치가 변하지 않음
+- Invariance : 함수의 입력이 바뀌어도 출력은 유지되어 바뀌지 않음
+- Convolution + Parameter(weight) Sharing을 통해 갖게되는 특성
+- Max Pooling : samll translation invariance
+  - 여러 픽셀 중 최댓값을 가진 픽셀 하나를 출력
+- 위치 정보를 특히 중요하게 쓰고 싶을 경우 translation invariance를 막아야 함

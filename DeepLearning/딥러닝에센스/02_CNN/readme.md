@@ -98,3 +98,50 @@ Translation Invariance : 입력의 취기 변해도 출력은 위치가 변하�
 - Max Pooling : samll translation invariance
   - 여러 픽셀 중 최댓값을 가진 픽셀 하나를 출력
 - 위치 정보를 특히 중요하게 쓰고 싶을 경우 translation invariance를 막아야 함
+
+# MLP와 CNN 비교
+## MLP
+- Fully connected layer : 각 perceptron이 다른 모든 perceptron과 연결됨
+- 모든 것에 연결되어 있기 때문에 총 parameter 수가 매우 많고 따라서 메모리를 많이 차지함
+- Spatial정보를 고려하지 않음 - 이미지 처리에 적절하지 않음
+  - 단순한 이미지에서는 어느 정도 작동함
+- 1차원으로 펴진 flatten vector(matrix to vector)만 입력으로 받음
+## CNN
+- 컴퓨터 비전 알고리즘에서 가장 많이 쓰임
+- Parameter(weight) sharing으로 인해 연산량 및 메모리를 많이 아낄 수 있음
+- Spatial 정보를 고려함
+- 벡터, 행렬 등을 인풋으로 받을 수 있음
+
+## MLP  
+![image](https://github.com/user-attachments/assets/47e434a0-fae4-4006-94a3-0429225e64c9)  
+- CNN에 비해 구조가 간단하고 단순함
+- 두 이미지 모두 1을 의미하는 같은 모양이지만 픽셀 값의 위치가 달라짐에 따라 모델이 다른 값으로 인식
+- 왼쪽 이미지 위주로 학습된 웨이트를 가진 모델일 경우 오른쪽 이미지를 인식하는 데 어려움을 겪음
+- 모든 입력이 위치와 상관없이 동일한 수준의 중요도를 가짐
+
+## CNN
+- CNN 낮은 레이어 : 가장자리, 동그라미 등 기초가 되는 기본적인 특징 추출
+- CNN 중간 레이어 : 특징들을 조합하여 복잡한 눈, 코, 입, 귀 등의 특징들을 추출
+- 최종 분류 : 개로 분류
+
+# Hyper Parameter
+## Parameter
+모델 내부에서 결정되는 변수
+- 딥러닝의 경우 학습되는 Weight
+- 통계의 경우 추정되는 값
+- 데이터로부터 결정
+- 사람이 임의로 결정할 수 없음
+## Hyper Parameter
+모델링을 할 경우 사용자가 직접 결정해주는 것
+- Heuristic한 방법으로 결정됨
+
+## 종류
+### Learning rate
+- 너무 클 경우 minimum에 도달하지 못할 가능성이 크고 작을 경우 학습이 느리게 됨
+### Epoch 수
+- 너무 많이 할 경우 모델이 overfitting이 될 수 있으며 적게 할 경우 학습이 덜 될 수 있음
+### CNN에서 layer의 수, Filter의 수
+- 너무 많을 경우 overfitting 및 과한 메모리와 느린 속도로 이어질 수 있으며 적을 경우 학습이 덜 될 수 있음
+### activation function으로 어떤 것을 사용할 지
+- 목적에 따라 activation function을 사용할 수 있음 예) Sigmoid, ReLU, tanh, leakyrelu
+### 

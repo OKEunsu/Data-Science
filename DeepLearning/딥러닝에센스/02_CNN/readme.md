@@ -144,4 +144,21 @@ Translation Invariance : 입력의 취기 변해도 출력은 위치가 변하�
 - 너무 많을 경우 overfitting 및 과한 메모리와 느린 속도로 이어질 수 있으며 적을 경우 학습이 덜 될 수 있음
 ### activation function으로 어떤 것을 사용할 지
 - 목적에 따라 activation function을 사용할 수 있음 예) Sigmoid, ReLU, tanh, leakyrelu
-### 
+### 어떤 손실 함수를 사용할 지
+- 목적에 따라 다양한 손실 함수를 사용할 수 있음 예) MSE, Cross Entropy
+### 어떤 최적화 기법을 사용할 지
+- SGD, Nesterov, Mormentum, Adam Optimization
+### Mini batch size
+- 너무 클 경우 메모리가 많이 들 수 있으며 너무 작을 경우 학습이 느리게 됨
+### Weight Initialization
+- 초기 weight를 어떻게 설정하느냐에 따라 학습에 영향을 미치게 됨
+## Hyper Parameter Search
+### Manual Search
+- 모델링을 하는 사람의 직관이나 경험에 의존하여 결정
+- 사람이 직접 시행착오의 반복을 통해 결정
+### Grid Search
+- 주어진 후보군에 대해 일정 간격의 값을 순차적으로 대입하며 최적의 hyper parameter를 찾음
+- 후보군이 많을수록 시간이 오래 걸림
+- Manual Serach와 크게 다르지 않음
+### Random Search
+- 일정한 간격이 아니라 무작위로 최적값을 찾는 방법

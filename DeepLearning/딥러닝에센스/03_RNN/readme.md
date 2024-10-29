@@ -39,7 +39,7 @@ Sequential data란?
 
 ## Nerual Network vs RNN
 일반적인 Neural Network
-- 이전의 입력값에 영향을 받지 않음
+- 이전의 입력값에 영향을 받지 않음  
 RNN
 - h(t-1) 이라는 정보가 추가되어 이전의 입력값에 영향을 받게됨
 

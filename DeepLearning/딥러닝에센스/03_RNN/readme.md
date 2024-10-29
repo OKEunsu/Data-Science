@@ -41,6 +41,18 @@ Sequential data란?
 일반적인 Neural Network
 - 이전의 입력값에 영향을 받지 않음  
 RNN
-- h(t-1) 이라는 정보가 추가되어 이전의 입력값에 영향을 받게됨
+- h(t-1) 이라는 정보가 추가되어 이전의 입력값에 영향을 받게됨  
 
+## RNN 예시
+Input x :[h,e,l,o] 일 경우 다음 나올 character 예측하여 hello 만들기
+- 'h', 'e', 'l', 'o' -> [1,0,0,0], [0,1,0,0], [0,0,1,0], [0,0,0,1] : one hot encoding
 
+## RNN : BPTT
+BackPropagation Through Time : 시간 방향으로 펼친 Neural Network의 역전파 수행
+
+## RNN : 단점
+1. 신경망이 깊어질 수록 Gradient Vanishing(or Exploding0 문제가 일어날 수 있음
+   - RNN은 가까이 있는 정보(입력)에 영향을 더 많이 받음
+   - 몇몇 사례에서 초반부 데이터에 영향을 받는 경우가 많다
+   - Gradient Vanishing/Exploding이 일어나면 기울기가 중간에 소멸하여 정보가 남아있지 않게 되며 학습이 안됨
+2. 장기적인 의존성을 확인하는 데 효과적이지 않음

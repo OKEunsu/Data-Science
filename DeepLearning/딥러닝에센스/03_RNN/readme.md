@@ -48,7 +48,9 @@ Input x :[h,e,l,o] 일 경우 다음 나올 character 예측하여 hello 만들�
 - 'h', 'e', 'l', 'o' -> [1,0,0,0], [0,1,0,0], [0,0,1,0], [0,0,0,1] : one hot encoding
 
 ## RNN : BPTT
-BackPropagation Through Time : 시간 방향으로 펼친 Neural Network의 역전파 수행
+BackPropagation Through Time : 시간 방향으로 펼친 Neural Network의 역전파 수행  
+![image](https://github.com/user-attachments/assets/61c51e72-37f9-4e37-8844-985848aac733)  
+
 
 ## RNN : 단점
 1. 신경망이 깊어질 수록 Gradient Vanishing(or Exploding0 문제가 일어날 수 있음
@@ -58,3 +60,29 @@ BackPropagation Through Time : 시간 방향으로 펼친 Neural Network의 역�
 2. 장기적인 의존성을 확인하는 데 효과적이지 않음
 
 # LSTM(Long short Term Memory Network)
+장기적인 의존성을 요구하는 학습을 할 수 있음  
+RNN에 비해 부가적인 연산들이 추가됨  
+![image](https://github.com/user-attachments/assets/49683272-f278-4ce2-afc8-a184351ba569)  
+![image](https://github.com/user-attachments/assets/7a624ad9-f9b4-499d-b4e3-a7e598dfe210)  
+### Cell State
+- LSTM의 핵심 아이디어
+- 이전의 정보가 잘 흐를 수 있는 구조
+- Cell State에 어떠한 값을 곱하거나 더해줌으로써 정보를 적절히 다음 state로 전달
+- 곱하거나 더해지는 정도는 여러 gate에 의해 조정됨
+### Forget Gate
+- 과거의 정보를 얼마나 잊을것인가
+- 이전 hidden state와 현재 input를 받아 sigmoid를 취함
+- 0에 가까울 수록 이전의 많은 정보를 잊고 1에 가까울 수록 유지
+### Input Gate
+- 현재 정보를 얼마나 기억할 것인가
+- 이전 hidden state와 현재 input를 받아 sigmoid를 취함으로써 it를 구함
+- tanh를 통해 새로운 벡터 ct를 만듦
+- it와 ct를 곱한 값을 cell state를 업데이트하기 위해 사용
+### Cell State Update
+- 이전 Cell State에 적절한 값을 고합고 더함으로써 새로운 Cell State를 업데이트
+### Output Gate
+- 다음 State로 보낼 output를 구함
+- 이전 hidden sate와 현재 input를 받아 sigmoid를 취함으로써 ot를 구함
+- Cell state에 tanh를 취한 것과 ot를 곱함으로써 output으로 보냄
+  
+

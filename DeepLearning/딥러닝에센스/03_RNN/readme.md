@@ -75,14 +75,14 @@ RNN에 비해 부가적인 연산들이 추가됨
 - 0에 가까울 수록 이전의 많은 정보를 잊고 1에 가까울 수록 유지
 ### Input Gate
 - 현재 정보를 얼마나 기억할 것인가
-- 이전 hidden state와 현재 input를 받아 sigmoid를 취함으로써 it를 구함
+- 이전 hidden state와 현재 input를 받아 sigmoid를 취함으로써 i_t를 구함
 - tanh를 통해 새로운 벡터 ct를 만듦
-- it와 ct를 곱한 값을 cell state를 업데이트하기 위해 사용
+- i_t와 c_t를 곱한 값을 cell state를 업데이트하기 위해 사용
 ### Cell State Update
 - 이전 Cell State에 적절한 값을 고합고 더함으로써 새로운 Cell State를 업데이트
 ### Output Gate
 - 다음 State로 보낼 output를 구함
-- 이전 hidden sate와 현재 input를 받아 sigmoid를 취함으로써 ot를 구함
+- 이전 hidden sate와 현재 input를 받아 sigmoid를 취함으로써 o_t를 구함
 - Cell state에 tanh를 취한 것과 ot를 곱함으로써 output으로 보냄
   
 

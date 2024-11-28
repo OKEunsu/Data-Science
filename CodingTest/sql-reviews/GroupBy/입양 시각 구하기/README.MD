@@ -84,6 +84,7 @@ FROM HOUR_TABLE HT
     LEFT JOIN OUTS_TABLE OT ON HT.HOUR = OT.HOUR
 ```  
 
+<br/>  
 
 ### 5. 결측값 처리
 ```SQL

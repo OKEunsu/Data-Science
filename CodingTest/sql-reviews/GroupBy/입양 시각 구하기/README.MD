@@ -29,8 +29,8 @@ WITH RECURSIVE recursive_name AS (
     JOIN recursive_name ON condition
 )
 SELECT * FROM recursive_name;
-```  
-  
+``` 
+
 <br/>  
 
 1. 'WITH RECURSIVE' : 재귀 쿼리를 시작하는 키워드.
@@ -39,7 +39,8 @@ SELECT * FROM recursive_name;
 4. 재귀 쿼리 : 기본 쿼리에서 반환된 데이터를 기반으로 반복적으로 데이터를 검색하는 부분  
 5. 'UNION ALL' : 기본 쿼리와 재귀 쿼리의 결과를 결합합니다.  
 6. 'SELECT' : 재귀 쿼리의 결과를 선택하여 반환합니다.
-  
+
+<br/>
   
 ### 2. 0~23까지 테이블 생성
 ```SQL
@@ -51,8 +52,8 @@ WITH RECURSIVE HOUR_TABLE AS(
 
 SELECT *
 FROM HOUR_TABLE
-
 ```  
+
 <br/>  
 
 ### 3. 본 테이블 시간별 입양 수 구하기  

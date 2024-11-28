@@ -52,6 +52,7 @@ SELECT *
 FROM HOUR_TABLE
 
 ```  
+<br/>  
 
 ### 3. 본 테이블 시간별 입양 수 구하기  
 

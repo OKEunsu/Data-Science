@@ -3,7 +3,8 @@
 
 ## 데이터  
 ### 입력 테이블  
-1. `ANIMAL_OUTS`
+1. `ANIMAL_OUTS`  
+  
 | **NAME**              | **TYPE**   | **NULLABLE** |
 |-----------------------|------------|--------------|
 | ANIMAL_ID             | VARCHAR(N) | FALSE        |

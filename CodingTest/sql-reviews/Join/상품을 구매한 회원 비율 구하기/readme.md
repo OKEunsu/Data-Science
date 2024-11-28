@@ -22,3 +22,9 @@
 | PRODUCT_ID     | INTEGER    | FALSE    |
 | SALES_AMOUNT   | INTEGER    | FALSE    |
 | SALES_DATE     | DATE       | FALSE    |
+
+## 풀이과정
+### 1. 2021년에 가입한 전체 회원, LEFT JOIN
+```
+
+```

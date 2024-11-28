@@ -53,7 +53,7 @@ WITH RECURSIVE HOUR_TABLE AS(
 SELECT *
 FROM HOUR_TABLE
 ```  
-
+  
 <br/>  
 
 ### 3. 본 테이블 시간별 입양 수 구하기  
@@ -64,7 +64,8 @@ FROM ANIMAL_OUTS
 GROUP BY 1
 ORDER BY 1 ASC
 ```  
-
+  
+<br/>  
 
 ### 4. JOIN
 ```SQL

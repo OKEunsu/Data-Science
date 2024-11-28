@@ -1,4 +1,3 @@
-코드 복사
 # Python Coding Test Reviews
 
 ## 소개

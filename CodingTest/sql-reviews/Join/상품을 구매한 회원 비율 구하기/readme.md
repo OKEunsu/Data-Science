@@ -43,13 +43,15 @@ WHERE YEAR(UI.JOINED) = '2021'
 GROUP BY 1, 2 
 HAVING YEAR IS NOT NULL; # NULL 값도 같이 그룹화 됨
 ```
-<br/>
+<br/>  
+
 ### 3. 2021년에 가입한 전체 회원수 구하기  
 ```sql
 SELECT COUNT(DISTINCT UI.USER_ID) AS TOTAL_USER
 FROM USER_INFO UI 
 WHERE YEAR(UI.JOINED) = '2021'
-```  
+```
+
 <br/>
   
 ### 4. 비율 구하기  

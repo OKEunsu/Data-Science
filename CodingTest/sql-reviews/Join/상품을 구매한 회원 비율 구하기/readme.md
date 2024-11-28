@@ -4,16 +4,18 @@
 
 ## 데이터
 ### 입력 테이블
-1. `Customers`
-  Column name	Type	Nullable
-  USER_ID	INTEGER	FALSE
-  GENDER	TINYINT(1)	TRUE
-  AGE	INTEGER	TRUE
-  JOINED	DATE	FALSE
-2. `Orders`
-   Column name	Type	Nullable
-  ONLINE_SALE_ID	INTEGER	FALSE
-  USER_ID	INTEGER	FALSE
-  PRODUCT_ID	INTEGER	FALSE
-  SALES_AMOUNT	INTEGER	FALSE
-  SALES_DATE	DATE	FALSE
+1. `Customers`  
+| Column Name | Type       | Nullable |
+|-------------|------------|----------|
+| USER_ID     | INTEGER    | FALSE    |
+| GENDER      | TINYINT(1) | TRUE     |
+| AGE         | INTEGER    | TRUE     |
+| JOINED      | DATE       | FALSE    |
+2. `Orders`  
+| Column Name    | Type       | Nullable |
+|----------------|------------|----------|
+| ONLINE_SALE_ID | INTEGER    | FALSE    |
+| USER_ID        | INTEGER    | FALSE    |
+| PRODUCT_ID     | INTEGER    | FALSE    |
+| SALES_AMOUNT   | INTEGER    | FALSE    |
+| SALES_DATE     | DATE       | FALSE    |

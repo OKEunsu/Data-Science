@@ -40,4 +40,25 @@ SELECT * FROM recursive_name;
 6. 'SELECT' : 재귀 쿼리의 결과를 선택하여 반환합니다.
   
   
-### 2. 
+### 2. 0~23까지 테이블 생성
+```SQL
+WITH RECURSIVE HOUR_TABLE AS(
+    SELECT 0 AS HOUR
+    UNION ALL
+    SELECT HOUR + 1 FROM HOUR_TABLE WHERE HOUR < 24
+)
+
+SELECT *
+FROM HOUR_TABLE
+
+```  
+
+### 3. 본 테이블 시간별 입양 수 구하기  
+
+```SQL
+SELECT HOUR(DATETIME) AS HOUR, COUNT(*)
+FROM ANIMAL_OUTS
+GROUP BY 1
+ORDER BY 1 ASC
+```  
+

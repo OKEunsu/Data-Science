@@ -13,7 +13,8 @@
 | AGE         | INTEGER    | TRUE     |
 | JOINED      | DATE       | FALSE    |
   
-2. `Orders`  
+2. `Orders`
+   
 | Column Name    | Type       | Nullable |
 |----------------|------------|----------|
 | ONLINE_SALE_ID | INTEGER    | FALSE    |

@@ -30,6 +30,7 @@ WITH RECURSIVE recursive_name AS (
 )
 SELECT * FROM recursive_name;
 ```  
+
 <br/>
 
 1. 'WITH RECURSIVE' : 재귀 쿼리를 시작하는 키워드.

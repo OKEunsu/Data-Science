@@ -32,7 +32,8 @@ FROM USER_INFO UI
     LEFT JOIN ONLINE_SALE OS ON UI.USER_ID = OS.USER_ID
 WHERE YEAR(UI.JOINED) = '2021'
 ```  
-<br/>
+<br/>  
+
 ### 2. 연도별, 월별로 구입한 고유한 회원수 구하기  
 
 ```sql

@@ -4,13 +4,15 @@
 
 ## 데이터
 ### 입력 테이블
-1. `Customers`  
+1. `Customers`
+   
 | Column Name | Type       | Nullable |
 |-------------|------------|----------|
 | USER_ID     | INTEGER    | FALSE    |
 | GENDER      | TINYINT(1) | TRUE     |
 | AGE         | INTEGER    | TRUE     |
 | JOINED      | DATE       | FALSE    |
+  
 2. `Orders`  
 | Column Name    | Type       | Nullable |
 |----------------|------------|----------|

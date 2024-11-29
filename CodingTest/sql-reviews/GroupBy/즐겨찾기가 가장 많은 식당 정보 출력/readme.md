@@ -13,3 +13,7 @@ REST_INFO 테이블에서 음식종류별로 즐겨찾기수가 가장 많은 �
 | PARKING_LOT  | VARCHAR(1) | TRUE     |
 | ADDRESS      | VARCHAR(100)| TRUE     |
 | TEL          | VARCHAR(100)| TRUE     |
+
+
+  
+### 문제풀이

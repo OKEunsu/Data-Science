@@ -14,6 +14,6 @@ REST_INFO 테이블에서 음식종류별로 즐겨찾기수가 가장 많은 �
 | ADDRESS      | VARCHAR(100)| TRUE     |
 | TEL          | VARCHAR(100)| TRUE     |
 
-
+<br/>  
   
 ### 문제풀이

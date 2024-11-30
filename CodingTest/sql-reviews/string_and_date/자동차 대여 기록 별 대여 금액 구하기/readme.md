@@ -99,6 +99,8 @@ ORDER BY
     HISTORY_ID DESC;
 ```
 
+<br/>
+
 ## 최적화 코드
 ```sql
 SELECT

@@ -31,17 +31,20 @@ CAR_RENTAL_COMPANY_CAR 테이블과 CAR_RENTAL_COMPANY_RENTAL_HISTORY 테이블�
 
 ```
 <br/>
+
 #### 2. 할인 요금 계산
 ```SQL
 
 ```
 
 <br/>
+
 #### 3. 조건 필터링
 ```SQL
 
 ```
 <br/>
+
 #### 4. 정렬
 ```SQL
 

@@ -1,5 +1,5 @@
 # 문제 : 특정 기간동안 대여 가능한 자동차들의 대여 비용 구하기
-
+#### [특정 기간동안 대여 가능한 자동차들의 대여비용 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/157339)
 ## 문제 설명
 CAR_RENTAL_COMPANY_CAR 테이블과 CAR_RENTAL_COMPANY_RENTAL_HISTORY 테이블과 CAR_RENTAL_COMPANY_DISCOUNT_PLAN 테이블에서 자동차 종류가 '트럭'인 자동차의 대여 기록에 대해서 대여 기록 별로 대여 금액(컬럼명: FEE)을 구하여 대여 기록 ID와 대여 금액 리스트를 출력하는 SQL문을 작성해주세요. 결과는 대여 금액을 기준으로 내림차순 정렬하고, 대여 금액이 같은 경우 대여 기록 ID를 기준으로 내림차순 정렬해주세요.
 
@@ -23,12 +23,23 @@ CAR_RENTAL_COMPANY_CAR 테이블과 CAR_RENTAL_COMPANY_RENTAL_HISTORY 테이블�
 
 
 ### 풀이
-#### 1. JOIN 활용 & WHERE 조건절
+#### 1. 대여 가능 여부 확인
 ```SQL
 
 ```
 
-#### 2. 
+#### 2. 할인 요금 계산
+```SQL
+
+```
 
 
+#### 3. 조건 필터링
+```SQL
 
+```
+
+#### 4. 정렬
+```SQL
+
+```

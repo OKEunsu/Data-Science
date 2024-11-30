@@ -99,5 +99,33 @@ ORDER BY
     HISTORY_ID DESC;
 ```
 
+## 최적화 코드
+```sql
+SELECT
+    r.HISTORY_ID,
+    -- 대여 금액 계산: (DAILY_FEE * 대여일수 * (1 - 할인율))
+    FLOOR(
+        c.DAILY_FEE *
+        DATEDIFF(r.END_DATE, r.START_DATE) *
+        (1 - COALESCE(d.DISCOUNT_RATE, 0) / 100)
+    ) AS FEE
+FROM
+    CAR_RENTAL_COMPANY_RENTAL_HISTORY r
+JOIN
+    CAR_RENTAL_COMPANY_CAR c ON r.CAR_ID = c.CAR_ID
+LEFT JOIN
+    CAR_RENTAL_COMPANY_DISCOUNT_PLAN d
+    ON c.CAR_TYPE = d.CAR_TYPE
+    AND CASE
+            WHEN DATEDIFF(r.END_DATE, r.START_DATE) >= 90 THEN '90일 이상'
+            WHEN DATEDIFF(r.END_DATE, r.START_DATE) >= 30 THEN '30일 이상'
+            WHEN DATEDIFF(r.END_DATE, r.START_DATE) >= 7 THEN '7일 이상'
+            ELSE NULL
+        END = d.DURATION_TYPE
+WHERE
+    c.CAR_TYPE = '트럭'  -- 자동차 종류가 '트럭'인 조건
+ORDER BY
+    FEE DESC, r.HISTORY_ID DESC;
+```
 
 

@@ -28,24 +28,55 @@ CAR_RENTAL_COMPANY_CAR 테이블과 CAR_RENTAL_COMPANY_RENTAL_HISTORY 테이블�
 ### 풀이
 #### 1. 대여 가능 여부 확인
 ```SQL
-
+-- 대여 가능 여부 확인
+WITH AVAILABLE_CARS AS (
+    SELECT C.CAR_ID, C.CAR_TYPE, C.DAILY_FEE
+    FROM CAR_RENTAL_COMPANY_CAR C
+    LEFT JOIN CAR_RENTAL_COMPANY_RENTAL_HISTORY H
+    ON C.CAR_ID = H.CAR_ID 
+    AND (
+        (H.START_DATE <= '2022-11-30' AND H.END_DATE >= '2022-11-01')
+    )
+    WHERE H.CAR_ID IS NULL
+    AND C.CAR_TYPE IN ('세단', 'SUV')
+)
 ```
 <br/>
 
-#### 2. 할인 요금 계산
+#### 2. 11-1 ~ 11-30 에 예약하지 않는 테이블
 ```SQL
-
+-- 할인 요금 테이블
+DISCOUNTED_CARS AS (
+    SELECT 
+        A.CAR_ID, 
+        A.CAR_TYPE, 
+        A.DAILY_FEE,
+        DP.DISCOUNT_RATE / 100 AS DISCOUNT_RATE
+    FROM AVAILABLE_CARS A
+    JOIN CAR_RENTAL_COMPANY_DISCOUNT_PLAN DP
+    ON A.CAR_TYPE = DP.CAR_TYPE
 ```
 
 <br/>
 
-#### 3. 조건 필터링
+#### 3. 해당 CAR_ID 할인 요금(30일 이상) 조인
 ```SQL
-
+-- 조건 필터링
+CAR_FEES AS (
+    SELECT 
+        CAR_ID, 
+        CAR_TYPE, 
+        ROUND((DAILY_FEE * 30) * (1 - DISCOUNT_RATE)) AS FEE
+    FROM DISCOUNTED_CARS
+)
+-- 정렬
+SELECT 
+    CAR_ID, 
+    CAR_TYPE, 
+    FEE
+FROM CAR_FEES
+WHERE FEE >= 500000 
+AND FEE < 2000000
+ORDER BY FEE DESC, CAR_TYPE ASC, CAR_ID DESC;
 ```
-<br/>
 
-#### 4. 정렬
-```SQL
-
-```

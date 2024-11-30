@@ -21,18 +21,51 @@ DEVELOPERS 테이블에서 Python이나 C# 스킬을 가진 개발자의 정보�
 
 ### 풀이
 #### 1. JOIN 활용
-`Orders`와 `Customers`를 `customer_id`를 기준으로 조인합니다.
+`SKILL_CODE`와 `CODE`를 비트 연산자로 JOIN
 
-#### 2. GROUP BY 및 집계 함수 사용
-`SUM(order_amount)`를 사용해 고객별 총 주문 금액을 계산합니다.
+```SQL
+SELECT *
+FROM DEVELOPERS D
+   JOIN SKILLCODES S ON (D.SKILL_CODE & S.CODE) = S.CODE
+WHERE FIRST_NAME = 'Jerami'
+```
+
+##### 예시  
+ID가 `D165`인 Edwards Jerami 개발자는 `SKILL CODE`가 400이다.  
+400을 비트 연산으로 하면 110010000 이다.
+400은 256 + 128 + 16 이므로 Python, Java, JavaScript가 되어야 한다.
+
+<br/>
+
+| ID   | FIRST_NAME | LAST_NAME | EMAIL                     | SKILL_CODE | NAME       | CATEGORY  | CODE |
+|------|------------|-----------|---------------------------|------------|------------|-----------|------|
+| D165 | Jerami     | Edwards   | jerami_edwards@grepp.co   | 400        | JavaScript | Front End | 16   |
+| D165 | Jerami     | Edwards   | jerami_edwards@grepp.co   | 400        | Java       | Back End  | 128  |
+| D165 | Jerami     | Edwards   | jerami_edwards@grepp.co   | 400        | Python     | Back End  | 256  |
+
+<br/>
+
+#### 2. WHERE 조건절 Python, C# 가져오기
 
 ```sql
-SELECT
-    c.customer_name,
-    SUM(o.order_amount) AS total_amount
+WHERE S.NAME = 'C#' OR S.NAME = 'Python'
+```
+
+<br/>
+
+#### 3. 전체 코드 - 중복 제거 DISTINCT ID 사용
+```sql
+SELECT DISTINCT
+    D.ID,
+    D.EMAIL,
+    D.FIRST_NAME,
+    D.LAST_NAME
 FROM
-    Customers c
+    DEVELOPERS D
 JOIN
-    Orders o ON c.customer_id = o.customer_id
-GROUP BY
-    c.customer_name;
+    SKILLCODES S
+ON
+    (D.SKILL_CODE & S.CODE) = S.CODE
+WHERE S.NAME = 'C#' OR S.NAME = 'Python'
+ORDER BY D.ID ASC;
+```

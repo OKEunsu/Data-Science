@@ -1,4 +1,4 @@
-# 문제 : 고객별 총 주문 금액 계산
+# 문제 : 부모의 형질을 모두 가지는 대장균 찾기
 #### [부모의 형질을 모두 가지는 대장균 찾기]([URL](https://school.programmers.co.kr/learn/courses/30/lessons/301647))
 
 ## 문제 설명

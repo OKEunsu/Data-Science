@@ -1,5 +1,4 @@
-# 문제 : 특정 세대의 대장균 찾기
-### [특정 세대의 대장균 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/301650)
+# 문제 : [특정 세대의 대장균 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/301650)
 3세대의 대장균의 ID(ID) 를 출력하는 SQL 문을 작성해주세요. 이때 결과는 대장균의 ID 에 대해 오름차순 정렬해주세요.
 
 <br/>

@@ -70,4 +70,5 @@ ORDER BY ID;
     - `WHERE Gen = 3`을 통해 3세대의 대장균만 선택.
     - 결과는 `ID`에 대해 오름차순으로 정렬.
 
-참고) 재귀 CTE에 관한 개념 설명 : [RECURSIVE CTE](https://ddunddan.tistory.com/30)
+### 참고
+재귀 CTE에 관한 개념 설명 : [RECURSIVE CTE](https://ddunddan.tistory.com/30)

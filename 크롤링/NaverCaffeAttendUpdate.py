@@ -31,7 +31,7 @@ def get_date_list(last_date, end_date):
     return date_list
 
 def generate_attendance_url(date):
-    return f"https://cafe.naver.com/AttendanceView.nhn?search.clubid=31201853&search.menuid=15&search.attendyear={date.year}&search.attendmonth={date.month}&search.attendday={date.day}"
+    return f"https://cafe.naver.com/AttendanceView.nhn?search.clubid={clubid}&search.menuid={menuid}&search.attendyear={date.year}&search.attendmonth={date.month}&search.attendday={date.day}"
 
 def naver_login(driver, naver_id, naver_pw):
     driver.get("https://nid.naver.com/nidlogin.login")

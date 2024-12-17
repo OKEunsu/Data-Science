@@ -62,7 +62,7 @@ FROM (SELECT DISTINCT product_id FROM Products) p;
 <br/>
 
 ### 풀이 2 윈도우 함수
-#### 1. `2019-08-16` 미만인 테이블 생성
+#### 1. `2019-08-16`보다 작거나 같은 테이블 생성
 ```sql
 SELECT p.product_id,
         p2.new_price, 

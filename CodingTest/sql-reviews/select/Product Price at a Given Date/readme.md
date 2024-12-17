@@ -4,6 +4,8 @@
 Write a solution to find the prices of all products on `2019-08-16`.   
 Assume the price of all products before any change is `10`
 
+<br/>
+
 ### 입력 테이블
 1. `Products `
    - `product_id`

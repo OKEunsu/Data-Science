@@ -43,7 +43,7 @@ coalesce(-- 상관쿼리식
 <br/>
 
 
-### 4. 전체 코드
+#### 4. 전체 코드
 ```sql
 SELECT p.product_id,
        COALESCE(

@@ -73,4 +73,29 @@ LEFT JOIN Products p2
 
 </br>
 
-#### 2. `
+#### 2. 결측값 -> 10으로, rn = 1로 최근 값 가져오기
+```sql
+SELECT product_id,
+       COALESCE(new_price, 10) AS price
+FROM RankedPrices
+WHERE rn = 1;
+```
+
+<br/>
+
+#### 3. 전체 코드
+```sql
+WITH RankedPrices AS (
+    SELECT p.product_id,
+           p2.new_price,
+           ROW_NUMBER() OVER (PARTITION BY p.product_id ORDER BY p2.change_date DESC) AS rn
+    FROM Products p
+    LEFT JOIN Products p2
+        ON p.product_id = p2.product_id
+        AND p2.change_date <= '2019-08-16'
+)
+SELECT product_id,
+       COALESCE(new_price, 10) AS price
+FROM RankedPrices
+WHERE rn = 1;
+```

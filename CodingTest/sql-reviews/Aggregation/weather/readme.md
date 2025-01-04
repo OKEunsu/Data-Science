@@ -1,5 +1,5 @@
 # 문제 : Weather Observation Station 20 / LAT_N 중앙값 구하기
-### [자동차 대여 기록 별 대여 금액 구하기](https://www.hackerrank.com/challenges/weather-observation-station-20/problem?isFullScreen=true)
+### [Weather Observation Station 20](https://www.hackerrank.com/challenges/weather-observation-station-20/problem?isFullScreen=true)
 
 ## 문제 설명
 A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to  4decimal places

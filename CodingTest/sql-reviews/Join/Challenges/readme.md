@@ -41,24 +41,44 @@ HAVING cnt = (SELECT max(sub.cnt) as maxcnt
 
 <br/>
 
-#### 3. 해당 CAR_ID 할인 요금(30일 이상) 조인
+#### 3. 생성된 챌린지 개수가 같을 경우 제외
 ```SQL
--- 조건 필터링
-CAR_FEES AS (
-    SELECT 
-        CAR_ID, 
-        CAR_TYPE, 
-        ROUND((DAILY_FEE * 30) * (1 - DISCOUNT_RATE)) AS FEE
-    FROM DISCOUNTED_CARS
-)
--- 정렬
-SELECT 
-    CAR_ID, 
-    CAR_TYPE, 
-    FEE
-FROM CAR_FEES
-WHERE FEE >= 500000 
-AND FEE < 2000000
-ORDER BY FEE DESC, CAR_TYPE ASC, CAR_ID DESC;
+OR cnt IN (SELECT sub.cnt
+                FROM (
+                    select hacker_id, count(*) as cnt
+                    from challenges
+                    group by hacker_id
+                ) sub
+                GROUP BY sub.cnt
+                HAVING count(*) = 1)
 ```
 
+<br/>
+
+#### 4. 정렬 생성된 챌린지의 총 개수를 기준으로 내림차순, hacker_id 기준으로 오름차순 정렬
+```sql
+ORDER BY cnt DESC, h.hacker_id
+```
+
+#### 5. 총 정리
+```sql
+SELECT h.hacker_id, h.name, COUNT(*) cnt
+FROM hackers h
+     INNER JOIN challenges c ON h.hacker_id = c.hacker_id
+GROUP BY h.hacker_id, h.name
+HAVING cnt = (SELECT max(sub.cnt) as maxcnt
+                FROM (
+                    SELECT hacker_id, count(*) as cnt
+                    FROM challenges
+                    GROUP BY hacker_id
+                ) sub)
+OR cnt IN (SELECT sub.cnt
+                FROM (
+                    select hacker_id, count(*) as cnt
+                    from challenges
+                    group by hacker_id
+                ) sub
+                GROUP BY sub.cnt
+                HAVING count(*) = 1)
+ORDER BY cnt DESC, h.hacker_id
+```

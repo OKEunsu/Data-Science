@@ -1,80 +1,42 @@
+# 문제 : Challenges
+### [Challenges](https://www.hackerrank.com/challenges/challenges/problem?isFullScreen=true)
+
+## 문제 설명
+Julia은 학생들에게 몇가지 코딩 챌린지를 만들도록 요청.  
+1. 각 학생이 만든 챌린지의 총 개수와 함께 hacker_id, 이름
+2. 생성된 챌린지의 총 개수를 기준으로 내림차순, hacker_id 기준으로 오름차순 정렬
+3. 동일한 챌린지 개수를 만든 학생이 여러명, 해당 개수가 가장 많이 생성된 챌린지 개수보다 적다면, 그 학생들은 결과에서 제외
+
+<br/>
+
+### 입력 테이블
+1. `Hackers`
+   - `hacker_id`
+   - `name`
+2. `Challenges`
+   - `challenge_id` 
+   - `hacker_id`
+
+<br/>
+
+### 풀이
+#### 1. 각 학생이 만든 챌린지 총 개수 구하기
+```SQL
 SELECT h.hacker_id, h.name, COUNT(*) cnt
 FROM hackers h
      INNER JOIN challenges c ON h.hacker_id = c.hacker_id
 GROUP BY h.hacker_id, h.name
+```
+<br/>
+
+#### 2. 생성된 챌린지 개수가 max이면 모두 다 출력, 
+```SQL
 HAVING cnt = (SELECT max(sub.cnt) as maxcnt
                 FROM (
                     SELECT hacker_id, count(*) as cnt
                     FROM challenges
                     GROUP BY hacker_id
                 ) sub)
-OR cnt IN (SELECT sub.cnt
-                FROM (
-                    select hacker_id, count(*) as cnt
-                    from challenges
-                    group by hacker_id
-                ) sub
-                GROUP BY sub.cnt
-                HAVING count(*) = 1)
-ORDER BY cnt DESC, h.hacker_id
-
-# 문제 : Challenges
-### [Challenges](https://www.hackerrank.com/challenges/challenges/problem?isFullScreen=true)
-
-## 문제 설명
-CAR_RENTAL_COMPANY_CAR 테이블과 CAR_RENTAL_COMPANY_RENTAL_HISTORY 테이블과 CAR_RENTAL_COMPANY_DISCOUNT_PLAN 테이블에서 자동차 종류가 '트럭'인 자동차의 대여 기록에 대해서 대여 기록 별로 대여 금액(컬럼명: FEE)을 구하여 대여 기록 ID와 대여 금액 리스트를 출력하는 SQL문을 작성해주세요. 결과는 대여 금액을 기준으로 내림차순 정렬하고, 대여 금액이 같은 경우 대여 기록 ID를 기준으로 내림차순 정렬해주세요.
-
-<br/>
-
-### 입력 테이블
-1. `CAR_RENTAL_COMPANY_CAR`
-   - `CAR_ID`
-   - `CAR_TYPE`
-   - `DAILY_FEE`
-   - `OPTIONS`
-2. `CAR_RENTAL_COMPANY_RENTAL_HISTORY`
-   - `HISTORY_ID` 
-   - `CAR_ID`
-   - `START_DATE`
-   - `END_DATE`
-3. `CAR_RENTAL_COMPANY_DISCOUNT_PLAN`
-   - `PLAN_ID` 
-   - `CAR_TYPE` 
-   - `DURATION_TYPE` 
-   - `DISCOUNT_RATE` 
-
-<br/>
-
-### 풀이
-#### 1. 대여 가능 여부 확인
-```SQL
--- 대여 가능 여부 확인
-WITH AVAILABLE_CARS AS (
-    SELECT C.CAR_ID, C.CAR_TYPE, C.DAILY_FEE
-    FROM CAR_RENTAL_COMPANY_CAR C
-    LEFT JOIN CAR_RENTAL_COMPANY_RENTAL_HISTORY H
-    ON C.CAR_ID = H.CAR_ID 
-    AND (H.START_DATE <= '2022-11-30' AND H.END_DATE >= '2022-11-01')
-    WHERE H.CAR_ID IS NULL
-    AND C.CAR_TYPE IN ('세단', 'SUV')
-)
-```
-<br/>
-
-#### 2. 11-1 ~ 11-30 에 예약하지 않는 차량 요금 계산
-```SQL
--- 할인 요금 테이블
-DISCOUNTED_CARS AS (
-    SELECT 
-        A.CAR_ID, 
-        A.CAR_TYPE, 
-        A.DAILY_FEE,
-        DP.DISCOUNT_RATE / 100 AS DISCOUNT_RATE
-    FROM AVAILABLE_CARS A
-    JOIN CAR_RENTAL_COMPANY_DISCOUNT_PLAN DP
-    ON A.CAR_TYPE = DP.CAR_TYPE
-    WHERE DP.DURATION_TYPE = '30일 이상'
-)
 ```
 
 <br/>

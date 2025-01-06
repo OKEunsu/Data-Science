@@ -16,23 +16,36 @@
 <br/>
 
 ### 풀이
-#### 1. 대여 가능 여부 확인
+#### 1. X1 <= Y1을 만족하는 쌍 대칭 쌍 X 기준으로 모으기
 ```SQL
-
+select if(X <= Y, X, Y) as X, if(X <= Y, Y, X) as Y
+from Functions
 ```
 <br/>
 
-#### 2. 11-1 ~ 11-30 에 예약하지 않는 차량 요금 계산
+#### 2. 쌍이 두개인 것만 출력
 ```SQL
-
-
+select *
+from (
+   select if(X <= Y, X, Y) as X, if(X <= Y, Y, X) as Y
+   from Functions
+) a
+group by a.X, a.Y
+having count(*) >= 2
 ```
 
 <br/>
 
-#### 3. 해당 CAR_ID 할인 요금(30일 이상) 조인
+#### 3. X 오름차순으로 정렬
 ```SQL
-
+select *
+from (
+   select if(X <= Y, X, Y) as X, if(X <= Y, Y, X) as Y
+   from Functions
+) a
+group by a.X, a.Y
+having count(*) >= 2
+order by a.X asc;
 ```
 
 

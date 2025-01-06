@@ -2,81 +2,54 @@
 ### [Project Planning](https://www.hackerrank.com/challenges/sql-projects/problem?isFullScreen=true)
 
 ## 문제 설명
-CAR_RENTAL_COMPANY_CAR 테이블과 CAR_RENTAL_COMPANY_RENTAL_HISTORY 테이블과 CAR_RENTAL_COMPANY_DISCOUNT_PLAN 테이블에서 자동차 종류가 '트럭'인 자동차의 대여 기록에 대해서 대여 기록 별로 대여 금액(컬럼명: FEE)을 구하여 대여 기록 ID와 대여 금액 리스트를 출력하는 SQL문을 작성해주세요. 결과는 대여 금액을 기준으로 내림차순 정렬하고, 대여 금액이 같은 경우 대여 기록 ID를 기준으로 내림차순 정렬해주세요.
+1. Start_date ~ End_date의 차이는 항상 1일임이 보장된다.
+2. End_date가 연속적이라면, 해당 작업들은 같은 프로젝트의 일부로 간주
+3. 완료된 프로젝트의 총 개수를 확인
+4. 프로젝트 완료 까지 걸린 일수 기준으로 오름차순 정렬
+5. 프로젝트 시작일을 기준으로 오름차순 정렬
+
 
 <br/>
 
 ### 입력 테이블
-1. `CAR_RENTAL_COMPANY_CAR`
-   - `CAR_ID`
-   - `CAR_TYPE`
-   - `DAILY_FEE`
-   - `OPTIONS`
-2. `CAR_RENTAL_COMPANY_RENTAL_HISTORY`
-   - `HISTORY_ID` 
-   - `CAR_ID`
-   - `START_DATE`
-   - `END_DATE`
-3. `CAR_RENTAL_COMPANY_DISCOUNT_PLAN`
-   - `PLAN_ID` 
-   - `CAR_TYPE` 
-   - `DURATION_TYPE` 
-   - `DISCOUNT_RATE` 
+1. `Project`
+   - `Task_ID`
+   - `Start_Date`
+   - `End_Date`
+
 
 <br/>
 
 ### 풀이
-#### 1. 대여 가능 여부 확인
+#### 1. End_Date가 연속된 프로젝트 그룹화
+- 1일 차이나는 end_date
+- 2025-01-06 첫번쨰 -1 2025-01-05
+- 2025-01-07 두번째 -2 2025-01-05
+Row_number() 사용
+
 ```SQL
--- 대여 가능 여부 확인
-WITH AVAILABLE_CARS AS (
-    SELECT C.CAR_ID, C.CAR_TYPE, C.DAILY_FEE
-    FROM CAR_RENTAL_COMPANY_CAR C
-    LEFT JOIN CAR_RENTAL_COMPANY_RENTAL_HISTORY H
-    ON C.CAR_ID = H.CAR_ID 
-    AND (H.START_DATE <= '2022-11-30' AND H.END_DATE >= '2022-11-01')
-    WHERE H.CAR_ID IS NULL
-    AND C.CAR_TYPE IN ('세단', 'SUV')
+(
+select *,
+   end_date - row_number() over (order by end_date) as project_group
+from Projects
+order by end_date asc
 )
 ```
 <br/>
 
-#### 2. 11-1 ~ 11-30 에 예약하지 않는 차량 요금 계산
+#### 2. 프로젝트 그룹화 중 최솟값, 최대값, 정렬
 ```SQL
--- 할인 요금 테이블
-DISCOUNTED_CARS AS (
-    SELECT 
-        A.CAR_ID, 
-        A.CAR_TYPE, 
-        A.DAILY_FEE,
-        DP.DISCOUNT_RATE / 100 AS DISCOUNT_RATE
-    FROM AVAILABLE_CARS A
-    JOIN CAR_RENTAL_COMPANY_DISCOUNT_PLAN DP
-    ON A.CAR_TYPE = DP.CAR_TYPE
-    WHERE DP.DURATION_TYPE = '30일 이상'
-)
+select min(start_date), max(end_date)
+from 
+(
+   select *,
+      end_date - row_number() over (order by end_date) as project_group
+   from Projects
+   order by end_date asc
+) a
+group by a.project_group
+order by max(end_date) - min(start_date) asc, min(start_date) asc
 ```
 
-<br/>
 
-#### 3. 해당 CAR_ID 할인 요금(30일 이상) 조인
-```SQL
--- 조건 필터링
-CAR_FEES AS (
-    SELECT 
-        CAR_ID, 
-        CAR_TYPE, 
-        ROUND((DAILY_FEE * 30) * (1 - DISCOUNT_RATE)) AS FEE
-    FROM DISCOUNTED_CARS
-)
--- 정렬
-SELECT 
-    CAR_ID, 
-    CAR_TYPE, 
-    FEE
-FROM CAR_FEES
-WHERE FEE >= 500000 
-AND FEE < 2000000
-ORDER BY FEE DESC, CAR_TYPE ASC, CAR_ID DESC;
-```
 

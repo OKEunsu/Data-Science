@@ -25,6 +25,13 @@
 
 <br/>
 
+### 예제
+![image](https://github.com/user-attachments/assets/a008921e-3dba-40b9-9ab7-d103ce657d27)
+![image](https://github.com/user-attachments/assets/f37791e8-21e5-41cd-89da-ab533c532149)
+
+
+
+
 ### 풀이
 #### 1. HISTORY에서 트럭인 빌린 일수 구하기
 ```SQL

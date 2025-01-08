@@ -31,6 +31,21 @@
 #### Submissions Table  
 ![image](https://github.com/user-attachments/assets/f37791e8-21e5-41cd-89da-ab533c532149)
 
+### Sample Output
+```
+2016-03-01 4 20703 Angela
+2016-03-02 2 79722 Michael
+2016-03-03 2 20703 Angela
+2016-03-04 2 20703 Angela
+2016-03-05 1 36396 Frank
+2016-03-06 1 20703 Angela
+```
+
+<br/>
+
+### 설명
+
+
 
 
 

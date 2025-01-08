@@ -26,7 +26,9 @@
 <br/>
 
 ### 예제
+#### Hackers Table
 ![image](https://github.com/user-attachments/assets/a008921e-3dba-40b9-9ab7-d103ce657d27)  
+#### Submissions Table  
 ![image](https://github.com/user-attachments/assets/f37791e8-21e5-41cd-89da-ab533c532149)
 
 

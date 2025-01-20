@@ -7,9 +7,9 @@ import pandas as pd
 import json
 from google.colab import userdata
 
-service_key = userdata.get('key_2')
-
-def upload_bigquery(table_name : str, service_key, page_no : str, num_page : str):
+def upload_bigquery(table_name : str, page_no : str, num_page : str):
+  service_key = userdata.get('key_2')
+  
   # 사용자 인증
   auth.authenticate_user()
 

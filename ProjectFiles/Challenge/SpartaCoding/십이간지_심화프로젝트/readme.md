@@ -14,16 +14,3 @@
 
 ## 2. Necessary data
 ![Untitled](https://github.com/user-attachments/assets/cd15ccd6-7e67-45d1-b4d5-e75b14d48599)
-
-
-<br/>
-
-## 3. Analytics
-
-<br/>
-
-## 4. Interpretation
-
-<br/>
-
-## 5. Report 

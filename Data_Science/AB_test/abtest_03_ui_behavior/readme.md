@@ -44,3 +44,9 @@ abtest_03_ui_behavior/
 ├── ab_testing.csv
 ├── README.md
 └── analysis.ipynb  ← 향후 분석 노트북 작성 예정
+```
+
+## 📌 데이터 출처
+
+- 📦 Kaggle: https://www.kaggle.com/datasets/adarsh0806/ab-testing-practice
+

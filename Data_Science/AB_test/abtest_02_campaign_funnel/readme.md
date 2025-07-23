@@ -49,3 +49,8 @@ abtest_02_campaign_funnel/
 ├── test_group.csv
 ├── README.md
 └── analysis.ipynb  ← 향후 분석 노트북 작성 예정
+
+## 📌 데이터 출처
+
+- 📦 Kaggle: https://www.kaggle.com/datasets/amirmotefaker/ab-testing-dataset
+

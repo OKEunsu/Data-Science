@@ -47,3 +47,8 @@ abtest_01_conversion_page/
 ├── countries.csv
 ├── README.md
 └── analysis.ipynb  ← 향후 분석 노트북 작성 예정
+
+## 📌 데이터 출처
+
+- 📦 Kaggle: https://www.kaggle.com/datasets/putdejudomthai/ecommerce-ab-testing-2022-dataset1
+- 📦 GitHub: https://github.com/jemc36/Udacity-DAND-AB-test-ecommerce

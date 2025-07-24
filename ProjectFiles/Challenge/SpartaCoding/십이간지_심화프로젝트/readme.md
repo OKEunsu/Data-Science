@@ -2,7 +2,7 @@
 
 > **음악 데이터를 비지도학습 기반으로 클러스터링하고, 감성 기반 플레이리스트 추천으로 확장한 프로젝트입니다.**
 
-![십이간지-Mood따라 Music 따라(feat.Mr.Cluster).jpg](./십이간지-Mood따라_Music_따라(feat.Mr.Cluster).jpg)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/324d2a25-6a4b-4215-ac8d-d93609ce04c8" />
 
 ---
 

@@ -91,19 +91,4 @@
 - `dataset/` — 전처리된 학습용 데이터
 - `output/` — 예측 결과 저장
 
----
-
-## 🏁 실행 방법
-
-```bash
-# 필요한 라이브러리 설치
-pip install geopandas pandas scikit-learn matplotlib seaborn
-```
-
-```python
-# 노트북 실행 후 search_img("keyword", page_num=10) 형태로 실행
-```
-
----
-
 © 2022 BDS조 (옥은수, 장상영, 김동규)

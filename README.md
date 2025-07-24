@@ -76,7 +76,7 @@ Python/
 
 - **이름**: 옥은수 (OK Eunsu)
 - **목표**: 데이터로 의미를 만드는 분석가
-- **연락처**: [GitHub](https://github.com/OKEunsu)
+- **연락처**: [Mail](esok0617@gmail.com)
 
 ---
 

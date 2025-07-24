@@ -93,8 +93,5 @@ export GOOGLE_APPLICATION_CREDENTIALS="your_service_account.json"
 
 ---
 
-## 🙋‍♂️ 작성자
-
-- [이름]: 은수
-- [Gmail]: eunsu@example.com (예시)
-- [GitHub]: [https://github.com/OKEunsu](https://github.com/OKEunsu)
+## 빅쿼리 적재 예시화면
+![부산](https://github.com/user-attachments/assets/d530b676-9bed-4a31-b2c3-059f54084714)

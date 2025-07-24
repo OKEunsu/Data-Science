@@ -61,7 +61,7 @@ Python/
 - Python, Pandas, NumPy, Scikit-learn
 - Tensorflow, Keras, OpenCV
 - GeoPandas, Folium, Seaborn, Matplotlib
-- Streamlit, Selenium, Flask
+- Streamlit, Selenium, FastAPI
 - SQL, BigQuery
 
 ---

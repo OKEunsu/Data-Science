@@ -115,7 +115,6 @@
 
 | 항목 | 설명 |
 |------|------|
-| 해운대/남구 유입 인구 흐름 | <img width="999" height="858" alt="image" src="https://github.com/user-attachments/assets/2871eb3e-67da-4cb5-abda-600ff36f6bec" />
-<img width="999" height="858" alt="image" src="https://github.com/user-attachments/assets/12cc9e9f-1330-4265-82a1-5dd1842a1cb6" /> |
-| 센텀시티 하차 시계열 | <img width="1640" height="903" alt="image" src="https://github.com/user-attachments/assets/5ea556fc-7cdd-4760-83e1-55538ed8f3cd" />
- |
+| 해운대 인구 흐름 | <img width="999" height="858" alt="image" src="https://github.com/user-attachments/assets/2871eb3e-67da-4cb5-abda-600ff36f6bec" /> |
+| 남구 유입 인구 흐름 | <img width="999" height="858" alt="image" src="https://github.com/user-attachments/assets/12cc9e9f-1330-4265-82a1-5dd1842a1cb6" /> |
+| 센텀시티 하차 시계열 | <img width="1640" height="903" alt="image" src="https://github.com/user-attachments/assets/5ea556fc-7cdd-4760-83e1-55538ed8f3cd" />  |

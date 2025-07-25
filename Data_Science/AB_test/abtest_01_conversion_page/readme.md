@@ -51,4 +51,3 @@ abtest_01_conversion_page/
 ## 📌 데이터 출처
 
 - 📦 Kaggle: https://www.kaggle.com/datasets/putdejudomthai/ecommerce-ab-testing-2022-dataset1
-- 📦 GitHub: https://github.com/jemc36/Udacity-DAND-AB-test-ecommerce

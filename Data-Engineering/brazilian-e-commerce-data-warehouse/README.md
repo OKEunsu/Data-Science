@@ -8,8 +8,7 @@
     - Window Function, CTE 활용
     - 데이터 마트 구성
 
-## 2. 데이터
- [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data)
+## 2. 데이터 [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data)
 <img width="2486" height="1496" alt="image" src="https://github.com/user-attachments/assets/67126f74-d9bb-415e-afb6-958e4457691a" />
 
 ## 3. 폴더 구조

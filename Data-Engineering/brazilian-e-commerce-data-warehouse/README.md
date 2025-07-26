@@ -8,6 +8,18 @@
     - Window Function, CTE 활용
     - 데이터 마트 구성
 
- ## 2. 데이터
+## 2. 데이터
  [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data)
 <img width="2486" height="1496" alt="image" src="https://github.com/user-attachments/assets/67126f74-d9bb-415e-afb6-958e4457691a" />
+
+## 3. 폴더 구조
+📁 abtest_01_dw_design
+  ↳ 데이터베이스 설계 / 스키마 구조 / 논리-물리 모델
+📁 abtest_02_sql_optimization
+  ↳ 복잡한 쿼리, CTE, 인덱스 활용 사례
+📁 abtest_03_data_mart
+  ↳ 마케팅 마트 뷰 구성 및 KPI 시각화
+📁 docs
+  ↳ 회고, 설계 노트, ERD 이미지 등
+
+  

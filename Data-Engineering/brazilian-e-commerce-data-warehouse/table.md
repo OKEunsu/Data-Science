@@ -36,8 +36,8 @@ COMMENT ON COLUMN Membership.Members.birth_date IS '생년월일';
 ```
 <br/>
 
-## 주요 데이터 타입, 용도
-### 숫자 타입
+### 주요 데이터 타입, 용도
+#### 숫자 타입
 | 타입             | 설명                                       |
 | -------------- | ---------------------------------------- |
 | `SERIAL`       | 자동 증가하는 정수 (1, 2, 3, ...)                |
@@ -46,14 +46,14 @@ COMMENT ON COLUMN Membership.Members.birth_date IS '생년월일';
 | `DECIMAL(p,s)` | 정확한 소수. `p`: 전체 자릿수, `s`: 소수점 이하 자릿수     |
 | `FLOAT`        | 부동 소수점. 큰 범위 표현 가능하나 정확도는 떨어질 수 있음       |
 
-### 문자열 타입
+#### 문자열 타입
 | 타입           | 설명                        |
 | ------------ | ------------------------- |
 | `CHAR(n)`    | 고정 길이 문자열. 남은 공간은 공백으로 채움 |
 | `VARCHAR(n)` | 가변 길이 문자열. 최대 n자까지 저장 가능  |
 | `TEXT`       | 길이 제한이 없는 긴 텍스트 저장에 적합    |
 
-### 시간 관련 타입
+#### 시간 관련 타입
 | 타입          | 설명                                        |
 | ----------- | ----------------------------------------- |
 | `DATE`      | 날짜만 저장 (형식: YYYY-MM-DD)                   |
@@ -61,7 +61,7 @@ COMMENT ON COLUMN Membership.Members.birth_date IS '생년월일';
 | `TIMESTAMP` | 날짜와 시간을 함께 저장 (형식: YYYY-MM-DD HH\:MM\:SS) |
 | `INTERVAL`  | 두 날짜/시간 간의 기간을 표현                         |
 
-### 기타 유용한 타입
+#### 기타 유용한 타입
 | 타입        | 설명                                  |
 | --------- | ----------------------------------- |
 | `BOOLEAN` | 참/거짓 값을 표현 (`true`, `false`)        |
@@ -71,6 +71,83 @@ COMMENT ON COLUMN Membership.Members.birth_date IS '생년월일';
 | `ARRAY`   | 배열 형태의 데이터 저장. 여러 값을 한 컬럼에 저장할 때 사용 |
 
 <br/>
+
+## 2. 제약조건
+테이블의 데이터 무결성을 보장하기 위해 다양한 제약조건을 설정할 수 있다.
+```sql
+CREATE TABLE Sales.Orders (
+  order_id INT PRIMARY KET,
+  member_id INT NOT NULL, 
+  order_date DATE DEFALUE (CURRENT_DATE()), 
+  total_amount DECIMAL(10, 2),
+  status ENUM('pending', 'completed', 'cancelled'),
+);
+```
+이러한 제약조건들의 의미는:
+- NOT NULL: 필수 입력 필드
+- CHECK: 데이터 유효성 검사
+- FOREIGN KEY: 다른 테이블과의 관계 설정
+- DEFAULT: 기본값 설정
+
+<br/>
+
+### 생각 보다 많이 쓰이는 제약 조건들 모음
+
+```sql
+-- 도서 목록 테이블
+CREATE TABLE Books (
+  book_id SERIAL PRIMARY KEY, -- 책 고유 번호
+  title VARCHAR(100) -- 책 제목
+);
+
+-- 대출 기록 테이블
+CREATE TABLE Loans (
+  loan_id SERIAL PRIMARY KEY,
+  book_id INT REFERENCES Books(book_id), -- 왜래키: 실제 존재하는 책만 대출
+  borrower_name VARCHAR(100),
+  loan_date DATE
+);
+
+-- 회원 테이블
+CREATE TABLE Members (
+  member_id SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  email VARCHAR(100) UNIQUE,
+  birth_date DATE CHECK (birth_date > '1900-01-01'),
+  join_date DATE DEFAULT CURRENT_DATE,
+  status VARCHAR(20) CHECK (status IN ('active', 'suspended', 'expired'))
+);
+
+-- 도서 테이블
+CREATE TABLE Books (
+  book_id SERIAL PRIMARY KEY,
+  isbn VARCHAR(13) UNIQUE NOT NULL,
+  title VARCHAR(200) NOT NULL,
+  price DECIMAL(10, 2) CHECK (price >= 0),
+  stock_quantity INT DEFAULT 1 CHECK (stock_quantity >= 0)
+);
+
+-- 대출 테이블
+CREATE TABLE Loans (
+    loan_id SERIAL PRIMARY KEY,
+    member_id INT REFERENCES Members(member_id) ON DELETE RESTRICT,
+    book_id INT REFERENCES Books(book_id) ON DELETE CASCADE,
+    loan_date DATE DEFAULT CURRENT_DATE,
+    due_date DATE,
+    return_date DATE,
+    CONSTRAINT valid_dates CHECK (
+        return_date IS NULL
+        OR (
+            return_date >= loan_date
+            AND return_date <= CURRENT_DATE
+        )
+    )
+);
+
+```
+
+
+
 
 
 

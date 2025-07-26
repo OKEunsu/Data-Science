@@ -1,5 +1,7 @@
 # 스키마(Schema)
-스키마는 데이터베이스의 전체적인 구조와 규칙을 정의하는 포괄적인 청사진입니다. 실제 건축에서 설계도가 건물의 모든 세부 사항을 정의하는 것처럼, 스키마는 데이터베이스의 구조를 정의합니다. MySQL에서는 데이터베이스와 같은 개념으로 생각할 수 있습니다. 
+스키마는 데이터베이스의 전체적인 구조와 규칙을 정의하는 포괄적인 청사진입니다.  
+실제 건축에서 설계도가 건물의 모든 세부 사항을 정의하는 것처럼, 스키마는 데이터베이스의 구조를 정의합니다. 
+MySQL에서는 데이터베이스와 같은 개념으로 생각할 수 있습니다. 
 
 
 스키마의 세 가지 차원 
@@ -7,17 +9,39 @@
 ## 1. 개념적 스키마:
 
 조직의 데이터 구조를 가장 추상적인 수준에서 표현합니다.  
-
 온라인 쇼핑몰의 예시: 'Sales', 'Inventory', 'Customer', 'Marketing'과 같은 비즈니스 영역별 스키마를 정의할 수 있습니다.  
-
 이는 백화점의 각 층이 특정 상품군을 판매하는 것과 비슷한 개념입니다.  
 
-논리적 스키마:  
+```sql
+-- 예시:
+CREATE SCHEMA Sales;
+CREATE SCHEMA Inventory;
+CREATE SCHEMA Customer;
+CREATE SCHEMA Marketing;
+```
 
-실제 데이터 모델을 정의합니다.   
+## 2. 논리적 스키마:  
 
-예시: 
+실제 데이터 모델을 정의합니다.  
+다음과 같이 구체화될 수 있습니다.  
 
+```sql
+-- 예시:
+-- 고객 기본 정보 관리
+CREATE TABLE Customer.BasicInfo(
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(255)
+);
+-- 고객 주소 정보 관리
+    CREATE TABLE Customer.Address (
+    address_id INT PRIMARY KEY,
+    customer_id INT,
+    address_type VARCHAR(20),
+    street VARCHAR(255)
+);
+
+```
 Customer 스키마 안에 BasicInfo와 Address 테이블을 생성하여 고객 기본 정보 및 주소 정보를 관리할 수 있습니다. 
 
 
@@ -51,17 +75,17 @@ MySQL은 테이블 단위로 스토리지 엔진을 선택할 수 있으며, 일
 ```SQL
 
 CREATE TABLESPACE customer_data
-DATAFILE 'customer.dat'
-SIZE 100M
-AUTOEXTEND ON;
+    DATAFILE 'customer.dat'
+    SIZE 100M
+    AUTOEXTEND ON;
 
 ALTER TABLE Customer.BasicInfo
-TABLESPACE customer_data
-STORAGE (
-    INITIAL 50M
-    NEXT 50M
-    MAXEXTENTS UNLIMITED
-);
+    TABLESPACE customer_data
+    STORAGE (
+        INITIAL 50M
+        NEXT 50M
+        MAXEXTENTS UNLIMITED
+    );
 ```
 
 스키마의 보안과 접근 제어 

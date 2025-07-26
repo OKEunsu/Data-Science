@@ -13,6 +13,7 @@
 
 <br/>
 
+## Data Shcema
 `olist_order_payments_dataset`  
 `olist_products_dataset`  
 `olist_order_reviews_dataset`    
@@ -27,7 +28,7 @@
 ### 배경
 이 데이터셋은 브라질 마켓플레이스에서 가장 큰 백화점인 Olist가 아낌없이 제공했습니다.  
 Olist는 브라질 전역의 소규모 사업체를 번거로움 없이 단일 계약으로 채널에 연결합니다.  
-이 판매자들은 Olist 스토어를 통해 제품을 판매하고 Olist 물류 파트너를 이용하여 고객에게 직접 배송할 수 있습니다. 자세한 내용은 저희 웹사이트(www.olist.com)에서 확인할 수 있습니다. 
+이 판매자들은 Olist 스토어를 통해 제품을 판매하고 Olist 물류 파트너를 이용하여 고객에게 직접 배송할 수 있습니다. 
 
 고객이 Olist 스토어에서 제품을 구매하면 판매자에게 해당 주문을 처리하라는 알림이 전송됩니다.  
 고객이 제품을 받거나 예상 배송일이 되면, 고객은 이메일로 만족도 설문조사를 받아 구매 경험에 대한 평가를 제공하고 의견을 작성할 수 있습니다.  
@@ -43,14 +44,16 @@ Olist는 브라질 전역의 소규모 사업체를 번거로움 없이 단일 �
 
 마켓플레이스에 등록된 제품의 예시가 제공됩니다.
 
+<br/>
+
 ## 3. 폴더 구조
-📁 abtest_01_dw_design
-  ↳ 데이터베이스 설계 / 스키마 구조 / 논리-물리 모델
-📁 abtest_02_sql_optimization
-  ↳ 복잡한 쿼리, CTE, 인덱스 활용 사례
-📁 abtest_03_data_mart
-  ↳ 마케팅 마트 뷰 구성 및 KPI 시각화
-📁 docs
-  ↳ 회고, 설계 노트, ERD 이미지 등
+📁 abtest_01_dw_design  
+  ↳ 데이터베이스 설계 / 스키마 구조 / 논리-물리 모델  
+📁 abtest_02_sql_optimization  
+  ↳ 복잡한 쿼리, CTE, 인덱스 활용 사례  
+📁 abtest_03_data_mart  
+  ↳ 마케팅 마트 뷰 구성 및 KPI 시각화  
+📁 docs  
+  ↳ 회고, 설계 노트, ERD 이미지 등  
 
   

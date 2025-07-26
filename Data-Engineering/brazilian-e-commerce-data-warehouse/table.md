@@ -130,24 +130,76 @@ CREATE TABLE Books (
 -- 대출 테이블
 CREATE TABLE Loans (
     loan_id SERIAL PRIMARY KEY,
-    member_id INT REFERENCES Members(member_id) ON DELETE RESTRICT,
-    book_id INT REFERENCES Books(book_id) ON DELETE CASCADE,
-    loan_date DATE DEFAULT CURRENT_DATE,
+    member_id INT REFERENCES Members(member_id) ON DELETE RESTRICT, -- Members 테이블 참조, 삭제 제한
+    book_id INT REFERENCES Books(book_id) ON DELETE CASCADE, -- Books 테이블 참조, 삭제 시 대출 기록 함께 삭제
+    loan_date DATE DEFAULT CURRENT_DATE, 
     due_date DATE,
-    return_date DATE,
-    CONSTRAINT valid_dates CHECK (
-        return_date IS NULL
-        OR (
-            return_date >= loan_date
-            AND return_date <= CURRENT_DATE
+    return_date DATE, 
+    CONSTRAINT valid_dates CHECK ( 
+        return_date IS NULL OR -- 반납일은 NULL 이거나
+        (
+            return_date >= loan_date -- 대출일보다 이후이고
+            AND return_date <= CURRENT_DATE -- 현재 날짜보다 이전이어야 함
         )
     )
 );
 
 ```
 
+<br/>
 
+## 3. 인덱스
+테이블의 검색 성능을 향상시키기 위해 인덱스를 생성
+```sql
+-- 주소 이름으로 빠른 검색을 위한 인덱스
+CREATE INDEX idx_address_id
+ON customer.address(address_id);
+```
+인덱스가 없다면 데이터베이스는 테이블의 모든 행을 하나씩 검색해야 함.  
+➜ 이를 FULL TABLE SCAN이라고 함.
+하지만 인덱스가 있으면 원하는 데이터를 빠르게 찾을 수 있다.
 
+<br/>
+### 단점
+- 인덱스는 추가 저장 공간을 사용
+- 데이터가 추가, 수정, 삭제될 때마다 인덱스도 함계 업데이트해야 하므로 성능 저하가 발생
+- 테이블에 데이터가 적다면 인덱스가 오히려 성능을 저하
+
+<br/>
+
+### 생성팁
+- 자주 검색되는 컬럼
+- 데이터의 중복이 적은 컬럼
+- 테이블의 데이터가 충분히 많은 경우
+
+<br/>
+
+## 4. 파티셔닝
+대용량 테이블의 경우, 데이터를 더 효율적으로 관리하기 위해 파티셔닝을 사용
+```sql
+CREATE TABLE Sales.Orders1 (
+    order_id INT,
+    member_id INT NOT NULL,
+    order_date DATE DEFAULT (CURRENT_DATE()),
+    total_amount DECIMAL(10,2),
+    status ENUM('pending', 'completed', 'cancelled'),
+    PRIMARY KEY (order_date, order_id)
+)
+PARTITION BY RANGE (YEAR(order_date)) (
+    PARTITION p2023 VALUES LESS THAN (2024),
+    PARTITION p2024 VALUES LESS THAN (2025),
+    PARTITION p2025 VALUES LESS THAN (2026),
+    PARTITION p_future VALUES LESS THAN MAXVALUE
+);
+```
+- MySQL에서 파티셔닝을 사용할 때는 파티셔닝 키가 반드시 PRIMARY KEY의 일부여야 함
+- PARTITION 구문은 특정 연도의 데이터를 저장할 공간을 만듭니다.
+  - p2023, p2024, p2025, p_futre: 2026년 이후의 모든 주문 데이터
+ 
+이렇게 파티셔닝을 하면 다음과 같은 이점이 존재
+1. 검색 성능 향상: 2024년의 주문만 찾고 싶다면, 다른 연도의 데이터는 검색하지 않아도 됨.
+2. 관리 용이성: 오래된 데이터를 쉽게 아카이브하거나 삭제할 수 있다.
+3. 백업 효율성: 특정 기간의 데이터만 선택적으로 백업
 
 
 

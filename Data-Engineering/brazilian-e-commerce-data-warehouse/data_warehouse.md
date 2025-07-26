@@ -136,16 +136,15 @@ SNS 데이터 ➜ 웹 크롤링
 
 #### 데이터 품질의 핵심 차원
 데이터 품질은 여러 측면에서 평가되어야 함.  
-```
-          ▲
-        정확성
-          │
-적시성 ────┼──── 완전성
-          │
-        일관성
 
-```
+| 차원명   | 설명                       |
+|----------|----------------------------|
+| 정확성   | 데이터가 사실과 얼마나 일치하는가 |
+| 적시성   | 데이터가 얼마나 최신이고 시의적절한가 |
+| 완전성   | 누락된 데이터 없이 충분한가 |
+| 일관성   | 다른 데이터와 충돌 없이 일치하는가 |
 
+<br/>
 
 정확성은 은행 계좌 잔액
 ➜ 실제 보유한 금액이 정확하게 표시 되어야 하며,  
@@ -173,7 +172,7 @@ SNS 데이터 ➜ 웹 크롤링
 <br/>
 
 #### 프로파일링 단계
-매주 월요일아침, 데이터 팀은 지난 주 주문 데이터를 검토합니다.  
+매주 월요일아침, 데이터 팀은 지난 주 주문 데이터를 검토  
 배송 주소 형식이 올바른지, 결제 금액이 제품 가격과 일치하는지 등을 확인  
 
 <br/>
@@ -212,7 +211,149 @@ SNS 데이터 ➜ 웹 크롤링
 
 <br/>
 
+## 차원 모델링
+### 팩트 테이블
+팩트 테이블은 비즈니스의 핵심 측정값을 조장하는 중심 테이블  
+실제로 측정하고 싶은 모든 수치들  
 
+<br/>
+예시: 온라인 쇼핑몰의 판매 팩트 테이블
+```
+CREATE TABLE 판매_팩트 (
+   주문ID INTEGER,
+   제품ID INTEGER,
+   고객ID INTEGER,
+   날짜ID INTEGER,
+   판매수량 INTEGER,
+   판매금액 DECIMAL(10, 2),
+   할인금액 DECIMAL(10, 2),
+   순이익 DECIMAL(10, 2),
+   FOREIGN KEY (제품ID) REFERENCES 제품_차원(제품ID),
+   FOREIGN KEY (고객ID) REFERENCES 고객_차원(고객ID),
+   FOREIGN KEY (날짜ID) REFERENCES 시간_차원(날짜ID)
+); 
+```
+
+<br/>
+
+### 차원 테이블의 상세 구조
+차원 테이블은 우리가 데이터를 분석할 때 사용하는 다양한 관점을 제공  
+```
+CREATE TABLE 제품_차원 (
+    제품ID INTEGER PRIMARY KEY,
+    제품명 VARCHAR(100),
+    카테고리 VARCHAR(50),
+    브랜드 VARCHAR(50),
+    제조사 VARCHAR(100),
+    출시일자 DATE,
+    단가 DECIMAL(10,2),
+    재고단위 VARCHAR(20)
+);
+```
+
+<br/>
+
+### 이런 설계 방식은
+- 스노우플레이크 스키마: 차원이 여러 관련 테이블로 정규화되는 스타 스키마의 확장입니다
+- 스타 스키마: 중앙 팩트 테이블이 여러 차원 테이블로 둘러싸여 별 모양을 닮은 가장 단순하고 일반적인 스키마입니다
+- SCD 스키마: 시간에 따른 차원 속성 데이터의 변화를 처리하는 기법입니다.
+
+<br/>
+
+### 데이터 아키텍처: 데이터 마켓
+#### 데이터 레이크: 모든 데이터의 시작점
+정제되지 않은 원시 데이터가 그대로 저장되는 거대한 저장소  
+
+<br/>
+
+#### 특징
+```
+# 데이터 레이크의 일반적인 구성 
+data_lake_contents = {
+    '구조화된_데이터': {
+        'DB_백업': {
+            'type': 'SQL dumps',
+            'frequency': '일간',
+            'retention': '영구'
+        },
+        '거래_기록': {
+            'type': 'CSV files',
+            'frequency': '실시간',
+            'retention': '5년'
+        }
+    },
+    '반구조화된_데이터': {
+        '로그_파일': {
+            'type': 'JSON/XML',
+            'frequency': '실시간',
+            'source': '웹서버, 앱서버'
+        }
+    },
+    '비구조화된_데이터': {
+        '고객_피드백': {
+            'type': '텍스트, 이미지',
+            'source': '이메일, SNS'
+        }
+    }
+}
+```
+이런 원시 데이터는 추후 분석을 위한 귀중한 자원.  
+데이터 생태계의 기반
+
+<br/>
+
+### 데이터 웨어하우스
+데이터가 사용 목적에 맞게 정제되고 구조화
+
+<br/>
+
+#### 핵심 구성
+
+```
+-- 고객 정보 관리
+CREATE TABLE customer_dimension (
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    segment VARCHAR(50),
+    lifetime_value DECIMAL(12,2),
+    first_purchase_date DATE,
+    last_purchase_date DATE,
+    CONSTRAINT valid_dates CHECK (first_purchase_date <= last_purchase_date)
+);
+
+-- 거래 이력 관리
+CREATE TABLE transaction_fact (
+    transaction_id BIGINT PRIMARY KEY,
+    customer_id INT,
+    product_id INT,
+    transaction_date TIMESTAMP,
+    amount DECIMAL(10,2),
+    FOREIGN KEY (customer_id) REFERENCES customer_dimension(customer_id)
+);
+```
+이러한 구조화된 데이터는 기업의 의사결정을 위한 기반
+
+<br/>
+
+### 데이터 마트
+목적에 특화된 데이터 제공
+각 부서나 팀의 특정 요구사항에 맞춰진 작은 규모의 데이터 웨어하우스  
+
+<br/>
+
+#### 부서별 데이터 마트 예시
+```
+CREATE VIEW marketing_campaign_performance AS
+SELECT
+    c.segment AS customer_segment,
+    COUNT(DISTINCT t.customer_id) AS unique_customers,
+    SUM(t.amount) AS total_revenue,
+    AVG(t.amount) AS average_order_value
+FROM transaction_fact t
+JOIN customer_dimension c ON t.customer_id = c.customer_id
+WHERE t.transaction_date >= CURRENT_DATE - INTERVAL '90 days'
+GROUP BY c.segment;
+```
 
 
 

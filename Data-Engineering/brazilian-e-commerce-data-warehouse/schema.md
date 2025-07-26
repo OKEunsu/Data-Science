@@ -46,7 +46,6 @@ Customer 스키마 안에 BasicInfo와 Address 테이블을 생성하여 고객 
 
 
 ```SQL
-
 CREATE SCHEMA Customer;
 
 CREATE TABLE Customer.BasicInfo (
@@ -61,8 +60,10 @@ CREATE TABLE Customer.Address (
     address_type VARCHAR(20),
     street VARCHAR(255)
 );
+
 ```
 
+<br/>
 ## 3. 물리적 스키마:
 
 실제 데이터가 저장되는 방식을 정의합니다. 

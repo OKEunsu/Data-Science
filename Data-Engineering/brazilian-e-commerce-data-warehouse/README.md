@@ -47,11 +47,11 @@ Olist는 브라질 전역의 소규모 사업체를 번거로움 없이 단일 �
 <br/>
 
 ## 3. 폴더 구조
-📁 abtest_01_dw_design  
-  ↳ 데이터베이스 설계 / 스키마 구조 / 논리-물리 모델  
-📁 abtest_02_sql_optimization  
-  ↳ 복잡한 쿼리, CTE, 인덱스 활용 사례  
-📁 abtest_03_data_mart  
+📁 schema.md 
+  ↳ 스키마 학습자료
+📁 table.md
+  ↳ 테이블 학습자료
+📁 
   ↳ 마케팅 마트 뷰 구성 및 KPI 시각화  
 📁 docs  
   ↳ 회고, 설계 노트, ERD 이미지 등  

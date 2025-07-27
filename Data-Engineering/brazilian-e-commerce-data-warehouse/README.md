@@ -51,9 +51,9 @@ Olist는 브라질 전역의 소규모 사업체를 번거로움 없이 단일 �
 
 ---
 
-## 🟦 슬라이드 1: 데이터 탐색 및 준비
+## 슬라이드 1: 데이터 탐색 및 준비
 
-### 📌 1.1 테이블 구조 및 관계 이해
+### 1.1 테이블 구조 및 관계 이해
 - 주요 테이블:
   - `orders`, `order_items`, `customers`, `products`, `sellers`, `order_payments`, `order_reviews`, `geolocation`
 - 핵심 컬럼 예시:
@@ -61,19 +61,19 @@ Olist는 브라질 전역의 소규모 사업체를 번거로움 없이 단일 �
   - `order_items`: order_id, product_id, seller_id, price
   - `customers`: customer_id, customer_city, customer_state
 
-### 🔗 1.2 테이블 간 관계 정의
+### 1.2 테이블 간 관계 정의
 - 고객 → 주문 (`customer_id`)
 - 주문 → 주문상품 (`order_id`)
 - 주문상품 → 제품, 판매자 (`product_id`, `seller_id`)
 - 주문 → 결제/리뷰/배송 (`order_id`)
 - 고객 ↔ 지역 정보 (`geolocation`)
 
-### 🧹 1.3 데이터 품질 점검
+### 1.3 데이터 품질 점검
 - 결측치 예시: review_comment_title, review_comment_message
 - 이상치 예시: 배송 소요일 음수, price=0
 - 데이터 타입 점검 및 변환 여부 확인
 
-### 🔑 1.4 키 및 정규화 구조 확인
+### 1.4 키 및 정규화 구조 확인
 - 기본키 예시: `orders.order_id`
 - 복합키 예시: `order_items.order_id + order_item_id`
 - 외래키 후보: customer_id, product_id, seller_id
@@ -81,13 +81,13 @@ Olist는 브라질 전역의 소규모 사업체를 번거로움 없이 단일 �
 
 ---
 
-## 🟦 슬라이드 2: 요구사항 분석 및 분석 단위 설계
+## 슬라이드 2: 요구사항 분석 및 분석 단위 설계
 
-### 🛍️ 2.1 비즈니스 흐름 요약
+### 🛍2.1 비즈니스 흐름 요약
 - 주문 생성 → 결제 → 배송 → 수령 → 리뷰
 - 각 단계에 연결되는 테이블 및 필드 정리
 
-### 🧠 2.2 OLTP vs OLAP 구분
+### 2.2 OLTP vs OLAP 구분
 
 | 항목 | OLTP | OLAP |
 |------|------|------|
@@ -95,14 +95,14 @@ Olist는 브라질 전역의 소규모 사업체를 번거로움 없이 단일 �
 | 예시 | 주문 등록, 결제 기록 | 월별 매출, 고객 LTV |
 | 쿼리 | INSERT, UPDATE | SELECT, JOIN, GROUP BY |
 
-### 📏 2.3 분석 단위(Grain) 정의
+### 2.3 분석 단위(Grain) 정의
 - 주문 단위 (`order_id`)
 - 주문상품 단위 (`order_item_id`)
 - 고객 단위 (`customer_id`)
 - 날짜 단위 (`order_purchase_date`)
 - 제품 단위 (`product_id`)
 
-### 📈 2.4 KPI 정의
+### 2.4 KPI 정의
 - 총 매출, 주문 수, 고객 수
 - 월별 매출 추이
 - 배송 지연률 = 실제 배송일 > 예상 배송일

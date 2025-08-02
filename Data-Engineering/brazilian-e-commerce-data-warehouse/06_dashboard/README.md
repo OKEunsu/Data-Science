@@ -58,3 +58,13 @@
 #### 📄 PDF 다운로드
 - 인사이트 및 전략 요약 리포트를 PDF로 저장 가능
 - 회의용 자료, 외부 보고용으로 활용
+
+---
+# 대시보드 화면(Streamlit)
+<img width="1909" height="951" alt="image" src="https://github.com/user-attachments/assets/6e28055a-aed7-4c9c-b9f3-acc34e04b84d" />
+<img width="1917" height="956" alt="image" src="https://github.com/user-attachments/assets/1f66b91f-c905-478c-80ac-0af950cc5d0d" />
+<img width="1912" height="954" alt="image" src="https://github.com/user-attachments/assets/6f1414d2-d9a2-422f-8a6c-97a027a82b06" />
+<img width="1910" height="838" alt="image" src="https://github.com/user-attachments/assets/75a0da13-f416-46ea-a509-7998def3c217" />
+<img width="1914" height="955" alt="image" src="https://github.com/user-attachments/assets/3c66c8be-bbe9-4cf2-9a10-68fe3a5df381" />
+
+

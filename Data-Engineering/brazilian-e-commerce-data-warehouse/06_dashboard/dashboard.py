@@ -1,30 +1,41 @@
-import streamlit as st
+# 📦 기본 라이브러리
 import os
+import io
+import base64
+from datetime import datetime
+
+# 📄 환경 변수 로딩
 from dotenv import load_dotenv
+
+# 🐘 데이터베이스 연결
 from sqlalchemy import create_engine
+
+# 🐼 데이터 처리
 import pandas as pd
 import numpy as np
-import pandas as pd
+
+# 📊 시각화
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-from matplotlib.backends.backend_pdf import PdfPages
-import io
-import base64
-from reportlab.lib.pagesizes import letter, A4
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
+
+# 📋 Streamlit
+import streamlit as st
+
+# 📄 PDF 리포트 (ReportLab)
+from reportlab.lib.pagesizes import A4, letter
+from reportlab.platypus import (
+    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
+)
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.units import inch
-from reportlab.lib import colors
-from reportlab.graphics.shapes import Drawing
-from reportlab.graphics.charts.linecharts import HorizontalLineChart
-from reportlab.graphics.charts.barcharts import VerticalBarChart
 from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
-from datetime import datetime
-import pandas as pd
-from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib import colors
+from reportlab.lib.units import inch
+
+# 🖋️ 한글 폰트 등록 (예: Nanum Gothic)
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+
 
 @st.cache_data
 def load_data():
@@ -1324,4 +1335,5 @@ update_sidebar_download(
     current_metrics,
     prev_metrics,
     can_compare
+
 )

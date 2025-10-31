@@ -7,11 +7,6 @@
 - `upload_to_pinecone.ipynb`: 임베딩 생성 후 Pinecone 인덱스에 업서트
 - `workflow.ipynb`: 검색기(retriever) + LLM + LangGraph로 질의응답 실행
 
-**파일명 피드백**
-- 현재 이름은 충분히 명확합니다. 그대로 사용해도 무방합니다.
-- 권장(선택): 실행 순서 명시를 위해 접두어 번호를 붙이면 가독성이 더 좋아집니다.
-  - `01_data_processing.ipynb`, `02_upload_to_pinecone.ipynb`, `03_workflow.ipynb`
-
 **사전 준비**
 - Python 3.11+ 권장, 가상환경 사용 권장(예: `.venv`)
 - 필수 패키지(예): `langchain-openai`, `langchain-pinecone`, `pinecone`, `langgraph`, `python-dotenv`, `jupyter`

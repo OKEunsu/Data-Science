@@ -7,8 +7,12 @@
 ## 🗂️ 디렉토리 구조
 
 ```
+Data_enginerning/
+├─ brazilian-e-commerce-data-warehouse 👉 이커머스 Data Mart 구축
+├─ 학습자료                             👉 데이터 엔지니어링 학습자료
+
 Data_Science/
-├─ AB_test/                 👉 A/B 테스트 실습 및 분석
+├─ AB_test/                👉 A/B 테스트 실습 및 분석
 ├─ ComputerVision/         👉 OpenCV, YOLO 등 컴퓨터 비전 프로젝트
 ├─ Crawling/               👉 웹 크롤링 및 자동화 관련 코드
 ├─ DataProcessing/         👉 EDA, 결측값 처리, 프레임 결합 등 전처리 관련 노트북
@@ -16,7 +20,7 @@ Data_Science/
 ├─ DeepLearning/           👉 Tensorflow, 딥러닝 이론 실습, OCR, 주식 예측 등
 ├─ MachineLearning/        👉 지도/비지도 학습, 모델 평가 및 다양한 예측 과제
 ├─ NLP/                    👉 자연어 처리 기초 및 정규식, 텍스트 분석
-├─ RecommendationSystem/  👉 추천 시스템 구현 프로젝트
+├─ RecommendationSystem/   👉 추천 시스템 구현 프로젝트
 ├─ Tech-Interview/         👉 기술 면접 정리 및 준비 자료
 
 Others/                    👉 환경 설정 및 유틸 코드 모음
@@ -26,7 +30,7 @@ ProjectFiles/
 ├─ Dacon_commerce/         👉 Dacon 이커머스 고객 세분화 분석
 ├─ ToyProject/             👉 미니 프로젝트 모음 (주택 가격, 카드 거래, 와인 등)
 ├─ UploadBigQuery/         👉 BigQuery 연동 스크립트
-├─ 소방안전AI공모전/        👉 **2022년 제2회 소방안전 AI예측 경진대회 우수상 수상작**
+├─ 소방안전AI공모전/         👉 **2022년 제2회 소방안전 AI예측 경진대회 우수상 수상작**
 
 Python/
 ├─ BasicLibery/            👉 파이썬 기초 라이브러리 활용 예제
@@ -35,8 +39,8 @@ Python/
 ├─ Function/               👉 함수 관련 기본 문법 실습
 ├─ OOP/                    👉 객체지향 프로그래밍 기초
 ├─ Pandas/                 👉 판다스 실무형 데이터 분석 예제
-├─ 디렉토리 처리/           👉 파일 입출력 및 디렉토리 자동화
-├─ 자료구조_알고리즘/       👉 기본 알고리즘 및 자료구조 실습
+├─ 디렉토리 처리/            👉 파일 입출력 및 디렉토리 자동화
+├─ 자료구조_알고리즘/         👉 기본 알고리즘 및 자료구조 실습
 ```
 
 ---
@@ -53,6 +57,9 @@ Python/
 
 ### 🎯 추천 시스템 개발
 - 사용자 기반, 아이템 기반 협업 필터링 구현
+
+### 이커머스 DM 구축
+- DW -> DM 프로젝트
 
 ---
 

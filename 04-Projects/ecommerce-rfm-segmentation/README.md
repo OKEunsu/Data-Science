@@ -107,7 +107,7 @@ Monetary의 변동계수가 가장 높아 세분화에 가장 큰 영향 → 비
 ```
 ecommerce-rfm-segmentation/
 ├── README.md
-└── rfm_segmentation.ipynb   # 전체 분석 코드 (Colab)
+└── E-commerce_Customer.ipynb   # 전체 분석 코드 (Colab)
 ```
 
 ---

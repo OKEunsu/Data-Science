@@ -5,6 +5,18 @@
 
 ---
 
+## 🏆 대표 프로젝트
+
+| 프로젝트 | 문제 | 방법 | 결과 |
+|---|---|---|---|
+| [이커머스 Data Warehouse 구축](03-Data-Engineering/e-commerce-data-warehouse) | 주문·결제·리뷰 등 8개 테이블로 흩어진 이커머스 데이터를 분석 가능한 구조로 | 스타 스키마 DW → 데이터마트 설계, SQL ETL | KPI 대시보드 배포 ([Streamlit](https://olist-ecommerce-dashboard-eunsu.streamlit.app/)) |
+| [이커머스 RFM 고객 세분화](04-Projects/ecommerce-rfm-segmentation) | 동일 가중치 RFM이 매출 목표와 맞지 않는 세분화를 만드는 문제 | 변동계수(CV) 기반 가중치 RFM, KMeans, ANOVA, 코호트·연관규칙 | 5등급 10세그먼트, 세그먼트 간 차이 유의(p < 0.001), 세그먼트별 액션 플랜 |
+| [소방안전 AI예측 경진대회](04-Projects/소방안전AI공모전) | 원주시 격자별 구급출동 사고 유형 예측 (3인 팀) | 기상·공간정보 외부 데이터 수집, GeoPandas, 유형별 이진 분류 | **2022 우수상** |
+
+그 밖에 [A/B 테스트 시리즈](02-Data-Science/ab-testing), [Toss CTR 예측](04-Projects/toss-ctr-prediction)(1,070만 행), [LLM RAG 파이프라인](02-Data-Science/llm-rag), [추천 시스템](02-Data-Science/recommendation-system)이 있습니다.
+
+---
+
 ## 🗂️ 디렉토리 구조
 
 ```
@@ -69,28 +81,6 @@ configs/                       👉 환경 설정 및 유틸
 ```
 
 > 최상단의 `Data-Engineering/`, `Data_Science/`, `ProjectFiles/`, `Python/`은 구조 정리 전 링크를 위한 **이동 안내 폴더**입니다. 안의 README가 현재 위치로 안내합니다.
-
----
-
-## 🏆 대표 프로젝트
-
-### 🔥 소방안전 AI예측 경진대회 (2022 우수상)
-- **목표**: 원주시 격자별 사고 유형 예측
-- **기술**: GeoPandas, Scikit-Learn, 시계열 + 공간 정보 처리
-- **성과**: 외부 데이터 수집 및 지리 분석 기반 정밀한 예측 모델 개발
-
-### 📊 A/B 테스트 분석 시리즈
-- conversion, 캠페인 퍼널, UI 테스트 등 실무형 A/B 실험 분석
-
-### 🎯 추천 시스템 개발
-- 사용자 기반, 아이템 기반 협업 필터링 구현
-
-### 🏗️ 이커머스 Data Warehouse 구축
-- Brazilian E-commerce 데이터 기반 DW → DM 파이프라인
-- 코드: [03-Data-Engineering/e-commerce-data-warehouse](03-Data-Engineering/e-commerce-data-warehouse) · 대시보드: [Streamlit](https://olist-ecommerce-dashboard-eunsu.streamlit.app/)
-
-### 🤖 LLM RAG 파이프라인
-- Pinecone + n8n 기반 RAG 워크플로우 및 에이전트 구현
 
 ---
 

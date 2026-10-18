@@ -23,7 +23,8 @@
 
 ## ⚙️ 전처리
 
-- **High cardinality 피처 제거**: gender, age_group, inventory_id 등 6개 (unique 추정치 300 초과)
+- **High cardinality 피처 제거**: gender, age_group, inventory_id, day_of_week, hour, seq 6개 (unique 추정치 300 초과)
+  - 추정치는 5만 행 샘플의 고유값 수 × (전체 행 수 / 샘플 수)로 계산 → 아래 회고 참고
 - **범주형 33개**: LabelEncoding (ThreadPoolExecutor 병렬 처리)
 - **수치형 79개**: StandardScaler (병렬 처리)
 - **결측값**: 96개 컬럼에 결측 존재 → 수치형은 0으로 채움, 범주형은 'missing' 클래스 처리
@@ -70,7 +71,7 @@
 ## 💬 인사이트 및 회고
 
 - **클래스 불균형** (CTR 1.9%)이 핵심 난제 — LogLoss 기준 최적화 시 AUC 트레이드오프 발생
-- High cardinality 피처(hour, day_of_week 등)를 제거했으나 이 정보가 CTR 예측에 중요할 수 있음 → 임베딩 처리로 대체 시도 여지 있음
+- **고유값 추정 방식 오류**: 샘플 고유값 수를 행 수 비율(약 214배)로 그대로 키워, 실제로는 범주가 적은 피처까지 high cardinality로 판정됨 — 샘플 고유값 gender 2 · age_group 8 · inventory_id 18 · day_of_week 7 · hour 24 (seq만 실제 고유값이 많음). 이 5개는 범주형으로 다시 넣고 재학습하면 AUC 개선 여지가 있음
 - 10.7M 대용량 데이터 전처리에 ThreadPoolExecutor로 병렬화 적용 — 효과적
 
 ---

@@ -2,7 +2,7 @@
 
 > Dacon 공모전 · 개인 분석 · 2024.09 · 1개월
 
-브라질 이커머스 플랫폼 Olist 데이터를 활용해, 단순 RFM이 아닌 **변동계수(CV) 기반 가중치를 적용한 커스텀 RFM 점수**로 고객을 세분화하고 세그먼트별 마케팅 액션 플랜을 도출한 프로젝트입니다.
+Dacon 이커머스 공모전 데이터(고객·온라인 판매·할인·마케팅·세금 5개 테이블)를 활용해, 단순 RFM이 아닌 **변동계수(CV) 기반 가중치를 적용한 커스텀 RFM 점수**로 고객을 세분화하고 세그먼트별 마케팅 액션 플랜을 도출한 프로젝트입니다.
 
 ---
 
@@ -60,13 +60,8 @@ Monetary의 변동계수가 가장 높아 세분화에 가장 큰 영향 → 비
 - ANOVA (p < 0.001) 로 세그먼트 간 유의미한 차이 확인 → 세분화 근거 확보
 - **5등급 10세그먼트** 분류
 
-| 등급 | 세그먼트 |
-|------|---------|
-| VIP | 최우수 고객 |
-| 충성 | 재구매 활성 고객 |
-| 잠재 | 육성 가능 고객 |
-| 신규 | 최근 첫 구매 고객 |
-| 이탈위험 | 재구매율 낮은 고객 |
+- **등급(5)**: Diamond · Platinum · Gold · Silver · Bronze
+- **세그먼트(10)**: champions · loyal_customers · potential_loyalists · new_customers · promising · need_attention · about_to_sleep · at_Risk · cant_loose · hibernating
 
 ### 3. 코호트 분석
 
@@ -114,5 +109,5 @@ ecommerce-rfm-segmentation/
 
 ## 데이터
 
-- **출처**: [Olist Brazilian E-Commerce (Kaggle)](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
-- 주문·고객·상품·리뷰 등 다수 테이블 통합 사용
+- **출처**: Dacon 이커머스 공모전 제공 데이터 (저장소에는 포함하지 않음)
+- `Customer_info` · `Onlinesales_info` · `Discount_info` · `Marketing_info` · `Tax_info` 5개 테이블 통합 사용

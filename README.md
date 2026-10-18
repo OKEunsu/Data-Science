@@ -45,7 +45,7 @@
 
 04-Projects/                   👉 프로젝트 모음
 ├── 🏆 소방안전AI공모전/        2022 제2회 소방안전 AI예측 경진대회 우수상 수상작
-├── dacon-e-commerce/          Dacon 이커머스 고객 세분화
+├── ecommerce-rfm-segmentation/ 이커머스 RFM 가중치 고객 세분화
 ├── toss-ctr-prediction/       Toss CTR 예측 모델링
 ├── busan-commute-analysis/    부산시 출퇴근 교통 분석
 ├── sonocam-review-analysis/   소노캄 거제 리뷰 분석
@@ -68,6 +68,8 @@ configs/                       👉 환경 설정 및 유틸
 └── utils/                     유틸리티 함수
 ```
 
+> 최상단의 `Data-Engineering/`, `Data_Science/`, `ProjectFiles/`, `Python/`은 구조 정리 전 링크를 위한 **이동 안내 폴더**입니다. 안의 README가 현재 위치로 안내합니다.
+
 ---
 
 ## 🏆 대표 프로젝트
@@ -85,6 +87,7 @@ configs/                       👉 환경 설정 및 유틸
 
 ### 🏗️ 이커머스 Data Warehouse 구축
 - Brazilian E-commerce 데이터 기반 DW → DM 파이프라인
+- 코드: [03-Data-Engineering/e-commerce-data-warehouse](03-Data-Engineering/e-commerce-data-warehouse) · 대시보드: [Streamlit](https://olist-ecommerce-dashboard-eunsu.streamlit.app/)
 
 ### 🤖 LLM RAG 파이프라인
 - Pinecone + n8n 기반 RAG 워크플로우 및 에이전트 구현

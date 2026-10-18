@@ -13,7 +13,7 @@
 
 <br/>
 
-## Data Shcema
+## Data Schema
 `olist_order_payments_dataset`  
 `olist_products_dataset`  
 `olist_order_reviews_dataset`    

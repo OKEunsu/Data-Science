@@ -10,7 +10,7 @@
 | 프로젝트 | 문제 | 방법 | 결과 |
 |---|---|---|---|
 | [이커머스 Data Warehouse 구축](03-Data-Engineering/e-commerce-data-warehouse) | 주문·결제·리뷰 등 8개 테이블로 흩어진 이커머스 데이터를 분석 가능한 구조로 | 스타 스키마 DW → 데이터마트 설계, SQL ETL | KPI 대시보드 배포 ([Streamlit](https://olist-ecommerce-dashboard-eunsu.streamlit.app/)) |
-| [이커머스 RFM 고객 세분화](04-Projects/ecommerce-rfm-segmentation) | 동일 가중치 RFM이 매출 목표와 맞지 않는 세분화를 만드는 문제 | 변동계수(CV) 기반 가중치 RFM, KMeans, ANOVA, 코호트·연관규칙 | 고객 1,468명 5등급 · 상위 2등급(고객 40%)이 매출 74.3% · 하위 2등급 92%가 1회 방문 |
+| [이커머스 RFM 고객 세분화](04-Projects/ecommerce-rfm-segmentation) | 동일 가중치 RFM이 매출 목표와 맞지 않는 세분화를 만드는 문제 | 변동계수(CV) 기반 가중치 RFM, KMeans, ANOVA, 코호트·연관규칙 | 고객 1,468명 5등급 · 상위 2등급(고객 40%)이 매출 72.7% · 하위 2등급 93%가 1회 방문 |
 | [소방안전 AI예측 경진대회](04-Projects/소방안전AI공모전) | 원주시 격자별 구급출동 사고 유형 예측 (3인 팀) | 기상·공간정보 외부 데이터 수집, GeoPandas, 유형별 이진 분류 | **2022 우수상** |
 
 그 밖에 [A/B 테스트 시리즈](02-Data-Science/ab-testing), [Toss CTR 예측](04-Projects/toss-ctr-prediction)(1,070만 행), [LLM RAG 파이프라인](02-Data-Science/llm-rag), [추천 시스템](02-Data-Science/recommendation-system)이 있습니다.

@@ -36,7 +36,10 @@
 ├── data-visualization/        matplotlib, Streamlit 시각화 예제
 ├── machine-learning/
 │   ├── study/                 지도/비지도 학습, 모델 평가
-│   └── projects/              금융예측, 자전거수요, 호텔예약 등 8개 프로젝트
+│   └── projects/              금융예측, 자전거수요, 호텔예약 등 실습 노트북 8개
+│       ├── housing-price-prediction/  보스턴 주택 가격 예측
+│       ├── london-bicycle-demand/     런던 자전거 수요 예측
+│       └── wine-classification/       와인 품종 분류
 ├── deep-learning/
 │   ├── basics/                딥러닝 기초, Tensorflow
 │   ├── applications/          EasyOCR, 주식 예측
@@ -61,11 +64,8 @@
 ├── toss-ctr-prediction/       Toss CTR 예측 모델링
 ├── busan-commute-analysis/    부산시 출퇴근 교통 분석
 ├── sonocam-review-analysis/   소노캄 거제 리뷰 분석
-├── housing-price-prediction/  주택 가격 예측
-├── london-bicycle-demand/     런던 자전거 수요 예측
-├── wine-classification/       와인 품질 분류
 ├── 카드거래이력_분석/           카드 거래 이력 분석
-├── pixelbay-crawler/          Pixelbay 이미지 크롤러
+├── pixabay-crawler/           Pixabay 이미지 크롤러
 ├── bigquery-upload/           BigQuery 연동 스크립트
 └── bootcamp/
     ├── sparta-coding/         스파르타코딩 프로젝트

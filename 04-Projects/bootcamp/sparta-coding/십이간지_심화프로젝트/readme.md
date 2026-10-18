@@ -49,7 +49,7 @@
 - Spectral Clustering, K-means 비교 실험
 - 차원 축소 및 시각화: PCA, t-SNE, UMAP  
 - 사용자 기반 플레이리스트 구성 및 설문 피드백 분석
-- 커스텀 시각화 함수: [`dimensionality_visaul.py`](./dimensionality_visaul.py)
+- 커스텀 시각화 함수: [`dimensionality_visual.py`](./dimensionality_visual.py)
 
 ---
 
@@ -58,7 +58,7 @@
 | 파일명 | 설명 |
 |--------|------|
 | `십이간지_심화프로젝트.ipynb` | 전체 프로젝트 워크플로우 정리 |
-| `dimensionality_visaul.py` | 3D 차원 축소 시각화 함수 모듈 |
+| `dimensionality_visual.py` | 3D 차원 축소 시각화 함수 모듈 |
 | `README.md` | 프로젝트 소개 및 문서화 (본 파일) |
 
 ---

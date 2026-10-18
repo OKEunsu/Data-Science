@@ -85,7 +85,7 @@ def search_img(keyword, page_num=10):
             
             # 다음 페이지로 이동
             if i < last_page_num:
-                next_page_url = f"{url}&pagi={i+1}"
+                next_page_url = f"{url}?pagi={i+1}"
                 driver.get(next_page_url)
                 time.sleep(5)
 
